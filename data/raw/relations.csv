@@ -1,0 +1,3 @@
+source,target,type,description
+opencv,python,BUILDS_ON,OpenCV can be used from Python.
+opencv,image_processing,APPLIES_TO,OpenCV is commonly used for image processing tasks.

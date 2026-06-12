@@ -1,0 +1,4 @@
+id,label,type
+image_processing,Image Processing,Domain
+python,Python,Technology
+opencv,OpenCV,Library
