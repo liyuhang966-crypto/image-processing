@@ -623,15 +623,16 @@ function buildLayout() {
   const chapterSlots = new Map();
   const mainChapters = chapterNodes.filter((node) => chapterIndex(node.label) <= 11);
   const otherChapters = chapterNodes.filter((node) => chapterIndex(node.label) > 11);
-  const radius = 360;
+  const radius = 370;
 
   mainChapters.forEach((chapter, index) => {
     const angle = -Math.PI / 2 + (2 * Math.PI * index) / Math.max(mainChapters.length, 1);
+    const childCount = nodes.filter((node) => node.type !== "chapter" && node.chapter === chapter.chapter && String(node.id).startsWith("wiki/")).length;
     const slot = {
       x: center.x + Math.cos(angle) * radius,
       y: center.y + Math.sin(angle) * radius,
       angle,
-      clusterRadius: 68 + Math.min(26, Math.max(0, chapterIndex(chapter.label) - 1) * 1.4),
+      clusterRadius: Math.min(58, Math.max(38, 24 + Math.sqrt(Math.max(childCount, 1)) * 6)),
       color: chapterColors.get(chapter.chapter),
     };
     chapterSlots.set(chapter.chapter, slot);
@@ -643,7 +644,7 @@ function buildLayout() {
       x: center.x - 120 + index * 120,
       y: center.y + radius + 94,
       angle: Math.PI / 2,
-      clusterRadius: 48,
+      clusterRadius: 38,
       color: chapterColors.get(chapter.chapter),
     };
     chapterSlots.set(chapter.chapter, slot);
@@ -658,8 +659,8 @@ function buildLayout() {
       .sort((a, b) => a.label.localeCompare(b.label, "zh-CN"));
     children.forEach((node, index) => {
       const count = Math.max(children.length, 1);
-      const angle = index * 2.399963229728653;
-      const r = 14 + Math.sqrt(index + 1) / Math.sqrt(count) * slot.clusterRadius;
+      const angle = slot.angle + Math.PI + index * 2.399963229728653;
+      const r = 8 + Math.sqrt(index + 1) / Math.sqrt(count) * slot.clusterRadius;
       positions.set(node.id, {
         x: slot.x + Math.cos(angle) * r,
         y: slot.y + Math.sin(angle) * r,
@@ -696,9 +697,9 @@ function buildLayout() {
   for (const [chapter, externalNodes] of externalByChapter.entries()) {
     const slot = chapterSlots.get(chapter);
     if (!slot) continue;
-    externalNodes.slice(0, 24).forEach((node, index) => {
+    externalNodes.slice(0, 18).forEach((node, index) => {
       const angle = index * 2.399963229728653 + 0.65;
-      const r = slot.clusterRadius + 18 + Math.sqrt(index + 1) * 4.2;
+      const r = slot.clusterRadius + 8 + Math.sqrt(index + 1) * 2.2;
       positions.set(node.id, {
         x: slot.x + Math.cos(angle) * r,
         y: slot.y + Math.sin(angle) * r,
