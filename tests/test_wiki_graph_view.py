@@ -7,6 +7,7 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.build_graph_from_wiki import build_wiki_graph, write_html, write_mermaid
+from tools.clustered_graph_layout import build_clustered_layout, write_clustered_graph_suite
 
 
 class WikiGraphViewTest(unittest.TestCase):
@@ -86,6 +87,67 @@ class WikiGraphViewTest(unittest.TestCase):
         worst_id, worst_count = max(incoming_links.items(), key=lambda item: item[1])
 
         self.assertLessEqual(worst_count, 12, f"{labels.get(worst_id, worst_id)} has too many ordinary wiki links")
+
+    def test_clustered_layout_precomputes_fixed_chapter_islands(self):
+        graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
+        layout = build_clustered_layout(graph)
+
+        self.assertEqual(len(layout["chapters"]), 11)
+        for node in layout["nodes"]:
+            self.assertIn("x", node)
+            self.assertIn("y", node)
+            self.assertTrue(node["fixed"])
+            self.assertTrue(node["fixedPosition"])
+            self.assertIn("chapterNumber", node)
+            self.assertIn("level", node)
+            self.assertIn("importance", node)
+
+        centers = {chapter["number"]: (chapter["x"], chapter["y"]) for chapter in layout["chapters"]}
+        min_distance = min(
+            ((ax - bx) ** 2 + (ay - by) ** 2) ** 0.5
+            for a, (ax, ay) in centers.items()
+            for b, (bx, by) in centers.items()
+            if a < b
+        )
+        self.assertGreater(min_distance, 390)
+
+        for node in layout["nodes"]:
+            chapter_number = node.get("chapterNumber")
+            if not chapter_number or node["level"] == "chapter":
+                continue
+            cx, cy = centers[chapter_number]
+            distance = ((node["x"] - cx) ** 2 + (node["y"] - cy) ** 2) ** 0.5
+            self.assertLessEqual(distance, 310)
+
+        nav_ids = {node["id"] for node in layout["nodes"]}
+        self.assertNotIn("README", nav_ids)
+        self.assertNotIn("index", nav_ids)
+        self.assertNotIn("coverage_report", nav_ids)
+
+        for edge in layout["edges"]:
+            if edge["type"] == "LINKS_TO" and edge.get("isCrossChapter"):
+                self.assertFalse(edge["visibleByDefault"])
+
+    def test_clustered_graph_suite_writes_all_recommended_views(self):
+        graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
+        with TemporaryDirectory() as workspace:
+            output_dir = Path(workspace)
+            write_clustered_graph_suite(graph, output_dir)
+
+            expected = {
+                "clustered_knowledge_graph.json",
+                "clustered_knowledge_graph.html",
+                "chapter_overview.html",
+                "repo_navigation_graph.html",
+                *{f"chapter_{number:02d}_graph.html" for number in range(1, 12)},
+            }
+            actual = {path.name for path in output_dir.iterdir()}
+            self.assertTrue(expected.issubset(actual))
+
+            main_html = (output_dir / "clustered_knowledge_graph.html").read_text(encoding="utf-8")
+            self.assertIn("章节岛屿式布局", main_html)
+            self.assertIn("显示跨章边", main_html)
+            self.assertIn("只看主干关系", main_html)
 
 
 if __name__ == "__main__":

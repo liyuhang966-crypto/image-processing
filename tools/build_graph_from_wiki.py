@@ -14,6 +14,11 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+try:
+    from .clustered_graph_layout import write_clustered_graph_suite
+except ImportError:  # pragma: no cover - direct script execution
+    from clustered_graph_layout import write_clustered_graph_suite
+
 
 WIKI_LINK_RE = re.compile(r"\[\[([^\]#|]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]")
 ROOT_UTILITY_NOTES = {"00_导航.md", "99_术语表.md"}
@@ -849,6 +854,7 @@ def main() -> None:
     json_path.write_text(json.dumps(graph, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     write_mermaid(graph, Path(args.mermaid))
     write_html(graph, Path(args.html))
+    write_clustered_graph_suite(graph, json_path.parent)
     print(f"Built graph with {len(graph['nodes'])} nodes and {len(graph['edges'])} edges.")
 
 

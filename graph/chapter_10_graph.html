@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数字图像处理知识图谱：第 10 章局部图</title>
+  <style>
+    :root { --bg:#15171b; --panel:#20232a; --ink:#f3f4f6; --muted:#aab2c0; --line:#8c94a3; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui, "Microsoft YaHei", sans-serif; }
+    main { padding:16px 18px 22px; }
+    h1 { margin:0 0 6px; font-size:22px; }
+    .summary { margin:0 0 12px; color:var(--muted); font-size:13px; line-height:1.55; }
+    .controls { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:10px 0 12px; }
+    label, button { color:#dde3ee; font-size:12px; }
+    select, button { margin-left:6px; border:1px solid #3b404a; border-radius:6px; background:var(--panel); color:#f8fafc; padding:5px 8px; }
+    input { vertical-align:middle; }
+    .wrap { display:grid; grid-template-columns:minmax(0, 1fr) 300px; gap:12px; }
+    .stage { overflow:auto; border:1px solid #30343b; border-radius:8px; background:#101114; min-height:760px; }
+    svg { display:block; min-width:1200px; height:min(82vh, 900px); min-height:760px; }
+    aside { border:1px solid #30343b; border-radius:8px; background:#1b1e24; padding:12px; min-height:180px; color:#d8dee9; font-size:13px; }
+    .legend { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 10px; color:#cbd5e1; font-size:12px; }
+    .swatch { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:5px; }
+    .edge { fill:none; stroke:var(--line); stroke-width:1.0; stroke-opacity:.30; }
+    .edge.backbone { stroke-width:1.5; stroke-opacity:.48; }
+    .edge.contains { stroke-opacity:.30; }
+    .edge.link { stroke-opacity:.22; }
+    .edge.semantic { stroke-dasharray:5 4; stroke-width:1.35; stroke-opacity:.42; }
+    .edge.code { stroke-dasharray:2 4; stroke-width:1.2; stroke-opacity:.42; }
+    .edge.cross-link, .edge.cross-semantic { stroke-opacity:.16; stroke-width:.85; }
+    .node { stroke:rgba(255,255,255,.72); stroke-width:1; cursor:default; }
+    .node.root { fill:#f8fafc; stroke:#f8fafc; }
+    .node.chapter { stroke-width:1.8; }
+    .node.external, .node.concept, .node.formula, .node.code { stroke-dasharray:2 2; }
+    .halo { fill:none; stroke-width:1.4; stroke-opacity:.16; }
+    text { font-family:system-ui, "Microsoft YaHei", sans-serif; }
+    .label { fill:#e5e7eb; font-size:11px; text-anchor:middle; paint-order:stroke; stroke:#101114; stroke-width:3px; pointer-events:none; }
+    .label.chapter { font-size:15px; font-weight:700; opacity:1; }
+    .label.root { font-size:14px; font-weight:700; }
+    .label.hidden { opacity:0; }
+    .dim { opacity:.12; }
+    .highlight { opacity:1 !important; stroke-width:2.4; }
+    .edge.highlight { stroke-opacity:.88 !important; stroke-width:2; }
+    .hidden-node, .hidden-edge { display:none; }
+    code { color:#93c5fd; word-break:break-all; }
+    @media (max-width:980px) { .wrap { grid-template-columns:1fr; } aside { min-height:120px; } }
+  </style>
+</head>
+<body>
+<main>
+  <h1>数字图像处理知识图谱：第 10 章局部图</h1>
+  <p class="summary">章节岛屿式布局：第 1 章到第 11 章使用固定坐标分区，章内小节围绕本章中心聚集；普通跨章 LINKS_TO 默认隐藏，只保留少量主干语义线。</p>
+  
+  <div class="controls">
+    <label>章节
+      <select id="chapterFilter"><option value="all">全部章节</option></select>
+    </label>
+    <label>关系
+      <select id="relationMode">
+        <option value="hide_links">隐藏普通 LINKS_TO</option>
+        <option value="all">全部关系</option>
+        <option value="contains">只看章节包含关系</option>
+        <option value="semantic">只看语义关系</option>
+        <option value="code">只看代码实现关系</option>
+        <option value="backbone">只看主干关系</option>
+      </select>
+    </label>
+    <label>标签
+      <select id="labelMode">
+        <option value="chapters">只显示章节标签</option>
+        <option value="current">显示当前章节标签</option>
+        <option value="all">显示全部标签</option>
+        <option value="none">隐藏全部小节标签</option>
+      </select>
+    </label>
+    <label><input type="checkbox" id="showCross"> 显示跨章边</label>
+    <label><input type="checkbox" id="showLinks"> 显示普通 LINKS_TO</label>
+    <button type="button" id="resetView">重置视图</button>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <div class="wrap">
+    <div class="stage"><svg id="graph" viewBox="0 0 1400 1040" aria-label="数字图像处理知识图谱：第 10 章局部图"></svg></div>
+    <aside id="details">悬停节点查看完整标题、章节、类型和路径。</aside>
+  </div>
+</main>
+<script type="application/json" id="graph-data">{&quot;meta&quot;: {&quot;layout&quot;: &quot;chapter 10 local&quot;, &quot;canvas&quot;: {&quot;width&quot;: 1400, &quot;height&quot;: 1040}, &quot;physics&quot;: false}, &quot;chapters&quot;: [{&quot;number&quot;: 10, &quot;id&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;label&quot;: &quot;10_图像压缩编码&quot;, &quot;x&quot;: 700, &quot;y&quot;: 520, &quot;color&quot;: &quot;#93c5fd&quot;}], &quot;nodes&quot;: [{&quot;id&quot;: &quot;root/digital_image_processing_knowledge_base&quot;, &quot;label&quot;: &quot;数字图像处理知识库&quot;, &quot;type&quot;: &quot;root&quot;, &quot;chapter&quot;: &quot;global&quot;, &quot;path&quot;: &quot;&quot;, &quot;x&quot;: 752.5, &quot;y&quot;: -300.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: null, &quot;level&quot;: &quot;root&quot;, &quot;importance&quot;: 5, &quot;displayLabel&quot;: &quot;数字图像处理知识库&quot;, &quot;color&quot;: &quot;#f8fafc&quot;}, {&quot;id&quot;: &quot;wiki/08_彩色图像处理/8.2_表色系.md&quot;, &quot;label&quot;: &quot;8.2 表色系&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 1811.75, &quot;y&quot;: -120.51, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 8, &quot;chapter&quot;: &quot;08&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;8.2 表色系&quot;, &quot;color&quot;: &quot;#fb7185&quot;}, {&quot;id&quot;: &quot;wiki/09_图像变换/9.3.1_应用于图像压缩.md&quot;, &quot;label&quot;: &quot;9.3.1 应用于图像压缩&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 37.38, &quot;y&quot;: -12.09, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 9, &quot;chapter&quot;: &quot;09&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;9.3.1 应用于图像压缩&quot;, &quot;color&quot;: &quot;#bef264&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;label&quot;: &quot;10_图像压缩编码&quot;, &quot;type&quot;: &quot;chapter&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/README.md&quot;, &quot;x&quot;: 700.0, &quot;y&quot;: 520.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;chapter&quot;, &quot;importance&quot;: 4, &quot;displayLabel&quot;: &quot;第 10 章&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念&quot;, &quot;label&quot;: &quot;10.1_图像冗余的概念&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念.md&quot;, &quot;x&quot;: 700.0, &quot;y&quot;: 394.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;section&quot;, &quot;importance&quot;: 3, &quot;displayLabel&quot;: &quot;10.1&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2_图像无损压缩编码&quot;, &quot;label&quot;: &quot;10.2_图像无损压缩编码&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.2_图像无损压缩编码.md&quot;, &quot;x&quot;: 809.12, &quot;y&quot;: 583.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;section&quot;, &quot;importance&quot;: 3, &quot;displayLabel&quot;: &quot;10.2&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码&quot;, &quot;label&quot;: &quot;10.3_图像有损压缩编码&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;x&quot;: 590.88, &quot;y&quot;: 583.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;section&quot;, &quot;importance&quot;: 3, &quot;displayLabel&quot;: &quot;10.3&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1.1_冗余的概念&quot;, &quot;label&quot;: &quot;10.1.1_冗余的概念&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.1.1_冗余的概念.md&quot;, &quot;x&quot;: 734.73, &quot;y&quot;: 329.13, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.1.1&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1.2_图像中的冗余&quot;, &quot;label&quot;: &quot;10.1.2_图像中的冗余&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.1.2_图像中的冗余.md&quot;, &quot;x&quot;: 882.66, &quot;y&quot;: 454.65, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.1.2&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）&quot;, &quot;label&quot;: &quot;10.2.1_行程编码（RLE）&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md&quot;, &quot;x&quot;: 847.93, &quot;y&quot;: 645.51, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.2.1&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码&quot;, &quot;label&quot;: &quot;10.2.2_哈夫曼（Huffman）编码&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md&quot;, &quot;x&quot;: 665.27, &quot;y&quot;: 710.87, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.2.2&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码&quot;, &quot;label&quot;: &quot;10.3.1_彩色图像的有损编码&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码.md&quot;, &quot;x&quot;: 517.34, &quot;y&quot;: 585.35, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.3.1&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码&quot;, &quot;label&quot;: &quot;10.3.2_小波变换编码&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码.md&quot;, &quot;x&quot;: 552.07, &quot;y&quot;: 394.49, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;subsection&quot;, &quot;importance&quot;: 2, &quot;displayLabel&quot;: &quot;10.3.2&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.x_习题&quot;, &quot;label&quot;: &quot;10.x_习题&quot;, &quot;type&quot;: &quot;note&quot;, &quot;chapter&quot;: &quot;10_图像压缩编码&quot;, &quot;path&quot;: &quot;wiki/10_图像压缩编码/10.x_习题.md&quot;, &quot;x&quot;: 700.0, &quot;y&quot;: 748.0, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;level&quot;: &quot;exercise&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.x&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;examples/10_image_compression/huffman_encoding_demo.py&quot;, &quot;label&quot;: &quot;huffman_encoding_demo.py&quot;, &quot;kind&quot;: &quot;code&quot;, &quot;x&quot;: 645.01, &quot;y&quot;: 765.93, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;huffman_encodi&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;examples/10_image_compression/jpeg_idea_demo.py&quot;, &quot;label&quot;: &quot;jpeg_idea_demo.py&quot;, &quot;kind&quot;: &quot;code&quot;, &quot;x&quot;: 543.75, &quot;y&quot;: 717.71, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;jpeg_idea_demo&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;examples/10_image_compression/rle_encoding.py&quot;, &quot;label&quot;: &quot;rle_encoding.py&quot;, &quot;kind&quot;: &quot;code&quot;, &quot;x&quot;: 473.44, &quot;y&quot;: 630.34, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;rle_encoding.p&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;examples/10_image_compression/wavelet_compression_demo.py&quot;, &quot;label&quot;: &quot;wavelet_compression_demo.py&quot;, &quot;kind&quot;: &quot;code&quot;, &quot;x&quot;: 448.0, &quot;y&quot;: 521.11, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;wavelet_compre&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1.1_冗余的概念.md&quot;, &quot;label&quot;: &quot;10.1.1 冗余的概念&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 472.48, &quot;y&quot;: 411.66, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.1.1 冗余的概念&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1.2_图像中的冗余.md&quot;, &quot;label&quot;: &quot;10.1.2 图像中的冗余&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 542.02, &quot;y&quot;: 323.67, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.1.2 图像中的冗余&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念.md&quot;, &quot;label&quot;: &quot;10.1 图像冗余的概念&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 642.84, &quot;y&quot;: 274.57, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.1 图像冗余的概念&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md&quot;, &quot;label&quot;: &quot;10.2.1 行程编码（RLE）&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 754.99, &quot;y&quot;: 274.07, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.2.1 行程编码（RL&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md&quot;, &quot;label&quot;: &quot;10.2.2 哈夫曼（Huffman）编码&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 856.25, &quot;y&quot;: 322.29, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.2.2 哈夫曼（Huf&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.2_图像无损压缩编码.md&quot;, &quot;label&quot;: &quot;10.2 图像无损压缩编码&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 926.56, &quot;y&quot;: 409.66, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.2 图像无损压缩编码&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码.md&quot;, &quot;label&quot;: &quot;10.3.1 彩色图像的有损编码&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 952.0, &quot;y&quot;: 518.89, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.3.1 彩色图像的有损&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码.md&quot;, &quot;label&quot;: &quot;10.3.2 小波变换编码&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 927.52, &quot;y&quot;: 628.34, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.3.2 小波变换编码&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;label&quot;: &quot;10.3 图像有损压缩编码&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 857.98, &quot;y&quot;: 716.33, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.3 图像有损压缩编码&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;wiki/10_图像压缩编码/10.x_习题.md&quot;, &quot;label&quot;: &quot;10.x 习题&quot;, &quot;kind&quot;: &quot;concept&quot;, &quot;x&quot;: 757.16, &quot;y&quot;: 765.43, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;10.x 习题&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;formula/ch10/压缩比&quot;, &quot;label&quot;: &quot;压缩比&quot;, &quot;kind&quot;: &quot;formula&quot;, &quot;x&quot;: 432.79, &quot;y&quot;: 429.86, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;压缩比&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;formula/ch10/小波稀疏系数&quot;, &quot;label&quot;: &quot;小波稀疏系数&quot;, &quot;kind&quot;: &quot;formula&quot;, &quot;x&quot;: 434.68, &quot;y&quot;: 424.45, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;小波稀疏系数&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;formula/ch10/平均码长&quot;, &quot;label&quot;: &quot;平均码长&quot;, &quot;kind&quot;: &quot;formula&quot;, &quot;x&quot;: 436.68, &quot;y&quot;: 419.07, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;平均码长&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}, {&quot;id&quot;: &quot;formula/ch10/量化公式&quot;, &quot;label&quot;: &quot;量化公式&quot;, &quot;kind&quot;: &quot;formula&quot;, &quot;x&quot;: 438.79, &quot;y&quot;: 413.74, &quot;fixed&quot;: true, &quot;fixedPosition&quot;: true, &quot;chapterNumber&quot;: 10, &quot;chapter&quot;: &quot;10&quot;, &quot;level&quot;: &quot;note&quot;, &quot;importance&quot;: 1, &quot;displayLabel&quot;: &quot;量化公式&quot;, &quot;color&quot;: &quot;#93c5fd&quot;}], &quot;edges&quot;: [{&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.1.1_冗余的概念&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.1.2_图像中的冗余&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.2_图像无损压缩编码&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/README&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.x_习题&quot;, &quot;type&quot;: &quot;CONTAINS&quot;, &quot;description&quot;: &quot;Chapter note contains this section note.&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;contains&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念.md&quot;, &quot;target&quot;: &quot;formula/ch10/压缩比&quot;, &quot;type&quot;: &quot;USES_FORMULA&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md&quot;, &quot;target&quot;: &quot;examples/10_image_compression/rle_encoding.py&quot;, &quot;type&quot;: &quot;IMPLEMENTED_BY&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md&quot;, &quot;type&quot;: &quot;COMPARES_WITH&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;semantic&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md&quot;, &quot;target&quot;: &quot;examples/10_image_compression/huffman_encoding_demo.py&quot;, &quot;type&quot;: &quot;IMPLEMENTED_BY&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md&quot;, &quot;target&quot;: &quot;formula/ch10/平均码长&quot;, &quot;type&quot;: &quot;USES_FORMULA&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.2_图像无损压缩编码.md&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念.md&quot;, &quot;type&quot;: &quot;PREREQUISITE&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;semantic&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码.md&quot;, &quot;target&quot;: &quot;examples/10_image_compression/wavelet_compression_demo.py&quot;, &quot;type&quot;: &quot;IMPLEMENTED_BY&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码.md&quot;, &quot;target&quot;: &quot;formula/ch10/小波稀疏系数&quot;, &quot;type&quot;: &quot;USES_FORMULA&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3.2_小波变换编码.md&quot;, &quot;target&quot;: &quot;wiki/09_图像变换/9.3.1_应用于图像压缩.md&quot;, &quot;type&quot;: &quot;PREREQUISITE&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 9, &quot;isCrossChapter&quot;: true, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;cross-semantic&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;target&quot;: &quot;examples/10_image_compression/jpeg_idea_demo.py&quot;, &quot;type&quot;: &quot;IMPLEMENTED_BY&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;target&quot;: &quot;formula/ch10/量化公式&quot;, &quot;type&quot;: &quot;USES_FORMULA&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;code&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;target&quot;: &quot;wiki/08_彩色图像处理/8.2_表色系.md&quot;, &quot;type&quot;: &quot;APPLIES_TO&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 8, &quot;isCrossChapter&quot;: true, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;cross-semantic&quot;}, {&quot;source&quot;: &quot;wiki/10_图像压缩编码/10.3_图像有损压缩编码.md&quot;, &quot;target&quot;: &quot;wiki/10_图像压缩编码/10.1_图像冗余的概念.md&quot;, &quot;type&quot;: &quot;PREREQUISITE&quot;, &quot;sourceChapter&quot;: 10, &quot;targetChapter&quot;: 10, &quot;isCrossChapter&quot;: false, &quot;visibleByDefault&quot;: true, &quot;class&quot;: &quot;semantic&quot;}]}</script>
+<script>
+const data = JSON.parse(document.getElementById("graph-data").textContent);
+const svg = document.getElementById("graph");
+const details = document.getElementById("details");
+const legend = document.getElementById("legend");
+const chapterFilter = document.getElementById("chapterFilter");
+const relationMode = document.getElementById("relationMode");
+const labelMode = document.getElementById("labelMode");
+const showCross = document.getElementById("showCross");
+const showLinks = document.getElementById("showLinks");
+const resetView = document.getElementById("resetView");
+const nodesById = new Map(data.nodes.map((node) => [node.id, node]));
+const neighbors = new Map();
+const semantic = new Set(["PREREQUISITE", "COMPARES_WITH", "GENERALIZES", "IMPLEMENTED_BY", "USES_FORMULA", "IMPROVES_OR_EXTENDS", "APPLIES_TO"]);
+const strong = new Set(["PREREQUISITE", "COMPARES_WITH", "IMPROVES_OR_EXTENDS", "APPLIES_TO"]);
+const codeRels = new Set(["IMPLEMENTED_BY", "USES_FORMULA"]);
+
+for (const edge of data.edges) {
+  if (!neighbors.has(edge.source)) neighbors.set(edge.source, new Set());
+  if (!neighbors.has(edge.target)) neighbors.set(edge.target, new Set());
+  neighbors.get(edge.source).add(edge.target);
+  neighbors.get(edge.target).add(edge.source);
+}
+
+for (const chapter of data.chapters || []) {
+  const item = document.createElement("span");
+  const swatch = document.createElement("i");
+  swatch.className = "swatch";
+  swatch.style.background = chapter.color;
+  item.append(swatch, document.createTextNode(chapter.label));
+  legend.appendChild(item);
+  if (chapterFilter) {
+    const option = document.createElement("option");
+    option.value = String(chapter.number);
+    option.textContent = `第 ${chapter.number} 章`;
+    chapterFilter.appendChild(option);
+  }
+}
+
+function el(name, attrs = {}) {
+  const node = document.createElementNS("http://www.w3.org/2000/svg", name);
+  for (const [key, value] of Object.entries(attrs)) {
+    if (value !== undefined && value !== null) node.setAttribute(key, value);
+  }
+  return node;
+}
+
+function nodeRadius(node) {
+  if (node.level === "root") return 18;
+  if (node.level === "chapter") return 20;
+  if (node.level === "section") return 11;
+  if (node.level === "subsection") return 8;
+  if (node.level === "exercise") return 7;
+  return 6;
+}
+
+function nodeVisible(node) {
+  const selected = chapterFilter ? chapterFilter.value : "all";
+  if (selected === "all") return true;
+  if (node.level === "root") return true;
+  return String(node.chapterNumber) === selected;
+}
+
+function edgeVisible(edge) {
+  const selected = chapterFilter ? chapterFilter.value : "all";
+  const mode = relationMode ? relationMode.value : "hide_links";
+  const source = nodesById.get(edge.source);
+  const target = nodesById.get(edge.target);
+  if (!source || !target || !nodeVisible(source) || !nodeVisible(target)) return false;
+  if (mode === "backbone") return edge.type === "CHAPTER_CLUSTER" || (edge.isCrossChapter && strong.has(edge.type));
+  if (mode === "contains") return edge.type === "CONTAINS" || edge.type === "CHAPTER_CLUSTER";
+  if (mode === "semantic") return semantic.has(edge.type) || edge.type === "CHAPTER_CLUSTER";
+  if (mode === "code") return codeRels.has(edge.type);
+  if (edge.type === "LINKS_TO") {
+    if (!showLinks || !showLinks.checked) return false;
+    if (edge.isCrossChapter && (!showCross || !showCross.checked)) return false;
+    return true;
+  }
+  if (edge.isCrossChapter && (!showCross || !showCross.checked) && !strong.has(edge.type)) return false;
+  return true;
+}
+
+function labelVisible(node) {
+  const mode = labelMode ? labelMode.value : "chapters";
+  if (node.level === "root" || node.level === "chapter") return mode !== "none";
+  if (mode === "all") return true;
+  if (mode === "current" && chapterFilter && chapterFilter.value !== "all") return String(node.chapterNumber) === chapterFilter.value;
+  return false;
+}
+
+function render() {
+  svg.replaceChildren();
+  const edgeLayer = el("g");
+  const haloLayer = el("g");
+  const nodeLayer = el("g");
+  const labelLayer = el("g");
+  svg.append(edgeLayer, haloLayer, nodeLayer, labelLayer);
+
+  for (const chapter of data.chapters || []) {
+    const visible = chapterFilter ? (chapterFilter.value === "all" || chapterFilter.value === String(chapter.number)) : true;
+    haloLayer.append(el("circle", { class: `halo ${visible ? "" : "hidden-node"}`, cx: chapter.x, cy: chapter.y, r: 265, stroke: chapter.color }));
+  }
+
+  for (const edge of data.edges) {
+    const source = nodesById.get(edge.source);
+    const target = nodesById.get(edge.target);
+    if (!source || !target) continue;
+    const path = el("path", {
+      class: `edge ${edge.class || "edge"} ${edgeVisible(edge) ? "" : "hidden-edge"}`,
+      d: `M ${source.x} ${source.y} Q ${(source.x + target.x) / 2} ${(source.y + target.y) / 2 - (edge.isCrossChapter ? 70 : 0)} ${target.x} ${target.y}`,
+      stroke: edge.isCrossChapter ? undefined : source.color,
+      "data-source": edge.source,
+      "data-target": edge.target,
+    });
+    path.append(el("title"));
+    path.firstChild.textContent = `${source.label} -> ${target.label} (${edge.type})`;
+    edgeLayer.append(path);
+  }
+
+  for (const node of data.nodes) {
+    const circle = el("circle", {
+      class: `node ${node.level} ${nodeVisible(node) ? "" : "hidden-node"}`,
+      cx: node.x,
+      cy: node.y,
+      r: nodeRadius(node),
+      fill: node.color,
+      "data-id": node.id,
+    });
+    circle.addEventListener("mouseenter", () => highlight(node.id));
+    circle.addEventListener("mouseleave", clearHighlight);
+    nodeLayer.append(circle);
+
+    const label = el("text", {
+      class: `label ${node.level} ${labelVisible(node) ? "" : "hidden"} ${nodeVisible(node) ? "" : "hidden-node"}`,
+      x: node.x,
+      y: node.y + nodeRadius(node) + 16,
+      "data-label-for": node.id,
+    });
+    label.textContent = node.displayLabel || node.label;
+    labelLayer.append(label);
+  }
+}
+
+function highlight(id) {
+  const node = nodesById.get(id);
+  const near = neighbors.get(id) || new Set();
+  for (const circle of svg.querySelectorAll(".node")) {
+    const cid = circle.getAttribute("data-id");
+    circle.classList.toggle("dim", cid !== id && !near.has(cid));
+    circle.classList.toggle("highlight", cid === id);
+  }
+  for (const edge of svg.querySelectorAll(".edge")) {
+    const hit = edge.getAttribute("data-source") === id || edge.getAttribute("data-target") === id;
+    edge.classList.toggle("dim", !hit);
+    edge.classList.toggle("highlight", hit);
+  }
+  details.innerHTML = `<strong>${node.label}</strong><p>章节：${node.chapter || "总览"}</p><p>类型：${node.type} / ${node.level}</p><p>路径：<code>${node.path || node.id}</code></p>`;
+}
+
+function clearHighlight() {
+  for (const item of svg.querySelectorAll(".dim,.highlight")) item.classList.remove("dim", "highlight");
+  details.textContent = "悬停节点查看完整标题、章节、类型和路径。";
+}
+
+for (const control of [chapterFilter, relationMode, labelMode, showCross, showLinks]) {
+  if (control) control.addEventListener("change", render);
+}
+if (resetView) resetView.addEventListener("click", () => svg.setAttribute("viewBox", "0 0 1400 1040"));
+render();
+</script>
+</body>
+</html>
