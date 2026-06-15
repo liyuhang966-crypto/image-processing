@@ -1,0 +1,79 @@
+{
+  "book": "数字图像处理基础",
+  "author": "朱虹",
+  "pdf_total_pages": 233,
+  "source_pdf": "C:\\Users\\lizi\\Desktop\\学习\\数字图像处理基础 (朱虹)(1).pdf",
+  "project_pdf": "raw/books/数字图像处理基础_朱虹.pdf",
+  "pdf_storage_method": "copy",
+  "book_to_pdf_offset": 15,
+  "rule": "PDF 页码 = 书中页码 + 15；例如书中第 1 页在 PDF 第 16 页。",
+  "status": "已根据内置目录和页面文本初步确认；后续章节仍建议抽样复核",
+  "sections": [
+    {
+      "number": "1.1",
+      "title": "数字图像处理、计算机视觉、计算机图形学",
+      "pdf_page": 18,
+      "book_page": 3
+    },
+    {
+      "number": "1.2",
+      "title": "数字图像处理系统的结构",
+      "pdf_page": 20,
+      "book_page": 5
+    },
+    {
+      "number": "1.3",
+      "title": "数字图像的基本概念",
+      "pdf_page": 21,
+      "book_page": 6
+    },
+    {
+      "number": "1.3.1",
+      "title": "数字图像的数值描述",
+      "pdf_page": 21,
+      "book_page": 6
+    },
+    {
+      "number": "1.3.2",
+      "title": "数字图像的灰度直方图",
+      "pdf_page": 24,
+      "book_page": 9
+    },
+    {
+      "number": "1.4",
+      "title": "数字图像处理的主要研究内容",
+      "pdf_page": 27,
+      "book_page": 12
+    },
+    {
+      "number": "1.5",
+      "title": "本书的结构安排",
+      "pdf_page": 29,
+      "book_page": 14
+    },
+    {
+      "number": "1.x",
+      "title": "习题",
+      "pdf_page": 30,
+      "book_page": 15
+    },
+    {
+      "number": "2.1",
+      "title": "γ校正",
+      "pdf_page": 32,
+      "book_page": 18
+    },
+    {
+      "number": "2.2",
+      "title": "对比度线性展宽",
+      "pdf_page": 37,
+      "book_page": 23
+    },
+    {
+      "number": "2.5",
+      "title": "直方图均衡化",
+      "pdf_page": 46,
+      "book_page": 32
+    }
+  ]
+}
