@@ -1,51 +1,39 @@
 # 数字图像处理知识库
 
-这是一个由 Codex 长期维护的 Obsidian 风格个人学习知识库，资料来源为《数字图像处理基础（朱虹）》。
+这是一个由 Codex 长期维护的 Obsidian 风格个人学习知识库，围绕《数字图像处理基础（朱虹）》进行转述、归纳和实验化整理。
 
-## 来源
+## 当前进度
 
-原始 PDF：
+- 全书目录已初步覆盖，`wiki/` 中已经建立第 1 章到第 11 章的章节与小节入口。
+- 第 1 章已完成基础细化，可作为概念入口。
+- 第 2 章已进入重点精修，并补充公式、算法步骤、原创教学图示、代码链接和复习问题。
+- 第 3 章到第 11 章已按同一模板升级为结构化精修初版，后续仍需逐章补图、复核公式和深化例题。
+- `raw/books/`、`raw/extracted_text/` 和 `raw/temp/` 只用于本地处理，不应提交公开仓库；公开仓库不包含原书 PDF 或原始抽取文本。
 
-```text
-C:\Users\lizi\Desktop\学习\数字图像处理基础 (朱虹)(1).pdf
-```
+## 本地 PDF 阅读
 
-项目内处理路径：
+公开仓库不显示原书 PDF。若你拥有合法副本，可在本地放入：
 
 ```text
 raw/books/数字图像处理基础_朱虹.pdf
 ```
 
-当前仓库在 D 盘，源 PDF 在 C 盘，硬链接不可用；本机未允许创建文件符号链接，因此当前项目内 PDF 是普通副本，约 43MB。该目录已被 `.gitignore` 忽略，不会上传。
-
-## 当前进度
-
-- 已读取 PDF：233 页，内置目录 140 项。
-- 已确认页码关系：PDF 页码 = 书中页码 + 15。
-- 已抽取第 1 章全文和第 2 章预览文本到 `raw/extracted_text/`。
-- 已细化第 1 章 wiki 和第 1 章知识关系图。
-- 第 2 章及后续章节只建立了必要关系占位，等待继续细化。
+每个 wiki 小节顶部的 Obsidian 内嵌 PDF 阅读块会从对应页码打开，便于边看整理笔记边核对原书。
 
 ## 入口
 
 - `index.md`
 - `wiki/00_导航.md`
-- `wiki/01_引言/README.md`
+- `wiki/99_术语表.md`
+- `graph/knowledge_graph.json`
 - `graph/mermaid_graph.md`
+- `graph/knowledge_graph.html`
 - `coverage_report.md`
-
-## 依赖
-
-```powershell
-pip install -r requirements.txt
-```
-
-本轮已使用 PyMuPDF 读取 PDF；不下载模型，不调用外部 API。
 
 ## 校验
 
 ```powershell
 python -m unittest discover -s tests
+python tools/check_links.py
+python tools/health_check.py
 ```
-
-后续维护时还需要检查 Obsidian 断链和知识图谱孤立节点。

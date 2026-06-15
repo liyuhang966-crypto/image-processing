@@ -1,7 +1,15 @@
-import argparse
 import csv
 import json
 from pathlib import Path
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[1]
+TOOLS = ROOT / "tools"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from build_graph_from_wiki import main as build_wiki_graph_files
 
 
 def read_csv_rows(path):
@@ -24,15 +32,7 @@ def build_graph(entities_path, relations_path, output_path):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Build a knowledge graph JSON file from entity and relation CSV files."
-    )
-    parser.add_argument("--entities", default="data/raw/entities.csv")
-    parser.add_argument("--relations", default="data/raw/relations.csv")
-    parser.add_argument("--output", default="data/processed/knowledge_graph.json")
-    args = parser.parse_args()
-
-    build_graph(args.entities, args.relations, args.output)
+    build_wiki_graph_files()
 
 
 if __name__ == "__main__":

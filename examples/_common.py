@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import sys
 
 import cv2
 import matplotlib.pyplot as plt
@@ -158,7 +159,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("image", nargs="?")
     args = parser.parse_args()
-    name = Path(__file__).stem
+    name = Path(sys.argv[0]).stem
     color = name in {"color_spaces", "white_balance", "gray_world", "color_compensation"}
     image, source = read_image(args.image, color=color)
     result = apply_demo(name, image)
@@ -174,7 +175,10 @@ def main():
     plt.imshow(result if result.ndim == 2 else cv2.cvtColor(result, cv2.COLOR_BGR2RGB), cmap="gray")
     plt.axis("off")
     plt.tight_layout()
-    plt.show()
+    if "agg" in plt.get_backend().lower():
+        plt.close()
+    else:
+        plt.show()
 
 
 if __name__ == "__main__":

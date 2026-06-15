@@ -19,14 +19,11 @@ class PdfReadingBlocksTest(unittest.TestCase):
         self.assertIn("PDF 页码：32-36", text)
         self.assertIn("[[raw/books/数字图像处理基础_朱虹.pdf#page=32]]", text)
 
-    def test_block_has_repo_relative_pdf_link(self):
+    def test_block_explains_public_repo_pdf_policy(self):
         text = block(32, 36)
 
-        self.assertIn(
-            "[raw/books/数字图像处理基础_朱虹.pdf#page=32](../../raw/books/数字图像处理基础_朱虹.pdf#page=32)",
-            text,
-        )
-        self.assertIn("GitHub/文件内", text)
+        self.assertIn("GitHub 公开仓库不随附原书 PDF", text)
+        self.assertNotIn("GitHub/文件内", text)
 
     def test_remove_old_blocks_preserves_note_body(self):
         text = """# 2.1 γ校正

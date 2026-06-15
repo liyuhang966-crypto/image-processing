@@ -8,7 +8,6 @@ from build_full_knowledge_base import PDF, build_entries, entry_path
 
 
 PDF_VAULT_PATH = "raw/books/数字图像处理基础_朱虹.pdf"
-PDF_REPO_RELATIVE_PATH = "../../raw/books/数字图像处理基础_朱虹.pdf"
 
 
 def block(pdf_page: int, end_pdf_page: int) -> str:
@@ -17,9 +16,8 @@ def block(pdf_page: int, end_pdf_page: int) -> str:
         "> [!note] 书中对应页",
         f"> PDF 页码：{page_range}",
         f"> 打开原页（Obsidian）：[[{PDF_VAULT_PATH}#page={pdf_page}]]",
-        f"> 打开原页（GitHub/文件内）：[{PDF_VAULT_PATH}#page={pdf_page}]({PDF_REPO_RELATIVE_PATH}#page={pdf_page})",
         ">",
-        "> 下面是从本小节起始页打开的 Obsidian 彩色 PDF 内嵌预览；下载仓库后，将有权使用的同名 PDF 放入 `raw/books/` 即可显示。",
+        "> GitHub 公开仓库不随附原书 PDF；下载仓库后，将有权使用的同名 PDF 放入 `raw/books/`，下面的 Obsidian 本地内嵌预览才会显示。",
         f"> ![[{PDF_VAULT_PATH}#page={pdf_page}]]",
     ]
     return "\n".join(lines)
