@@ -129,7 +129,29 @@ def build_wiki_graph(wiki_dir: str | Path = "wiki") -> dict[str, list[dict[str, 
                         }
                     )
 
-    return {"nodes": nodes, "edges": edges}
+    graph = {"nodes": nodes, "edges": edges}
+    merge_semantic_overlay(graph, Path(wiki_dir).parent / "graph" / "semantic_edges.json")
+    return graph
+
+
+def merge_semantic_overlay(graph: dict[str, list[dict[str, str]]], overlay_path: Path) -> None:
+    if not overlay_path.exists():
+        return
+    overlay = json.loads(overlay_path.read_text(encoding="utf-8"))
+    node_ids = {node["id"] for node in graph["nodes"]}
+    for node in overlay.get("nodes", []):
+        if node["id"] not in node_ids:
+            graph["nodes"].append(node)
+            node_ids.add(node["id"])
+
+    edge_keys = {(edge["source"], edge["target"], edge["type"]) for edge in graph["edges"]}
+    for edge in overlay.get("edges", []):
+        if edge["source"] not in node_ids or edge["target"] not in node_ids:
+            continue
+        key = (edge["source"], edge["target"], edge["type"])
+        if key not in edge_keys:
+            graph["edges"].append(edge)
+            edge_keys.add(key)
 
 
 def write_mermaid(graph: dict[str, list[dict[str, str]]], output_path: Path) -> None:

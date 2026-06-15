@@ -78,6 +78,7 @@ def main() -> int:
     for command in [
         [sys.executable, "tools/check_reading_blocks.py"],
         [sys.executable, "tools/check_links.py"],
+        [sys.executable, "tools/check_coverage.py"],
     ]:
         if run(command) != 0:
             errors.append(f"command failed: {' '.join(command)}")
