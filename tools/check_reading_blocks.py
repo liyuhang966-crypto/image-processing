@@ -6,7 +6,11 @@ EMBED_PATTERN = re.compile(
     r"!\[\[raw/books/数字图像处理基础_朱虹\.pdf#page=(\d+)\]\]"
 )
 OPEN_PATTERN = re.compile(
-    r"打开原页：\[\[raw/books/数字图像处理基础_朱虹\.pdf#page=(\d+)\]\]"
+    r"打开原页（Obsidian）：\[\[raw/books/数字图像处理基础_朱虹\.pdf#page=(\d+)\]\]"
+)
+REPO_LINK_PATTERN = re.compile(
+    r"打开原页（GitHub/文件内）：\[raw/books/数字图像处理基础_朱虹\.pdf#page=(\d+)\]"
+    r"\(\.\./\.\./raw/books/数字图像处理基础_朱虹\.pdf#page=(\d+)\)"
 )
 
 
@@ -31,8 +35,15 @@ def main() -> None:
             continue
         embeds = EMBED_PATTERN.findall(block)
         opens = OPEN_PATTERN.findall(block)
-        if len(embeds) != 1 or not opens or embeds[0] != opens[0]:
-            invalid.append((str(path), opens, embeds))
+        repo_links = REPO_LINK_PATTERN.findall(block)
+        if (
+            len(embeds) != 1
+            or not opens
+            or embeds[0] != opens[0]
+            or not repo_links
+            or repo_links[0] != (opens[0], opens[0])
+        ):
+            invalid.append((str(path), opens, embeds, repo_links))
     print(f"missing_reading_blocks={len(missing)}")
     print(f"invalid_reading_blocks={len(invalid)}")
     for item in missing:
