@@ -1,32 +1,11 @@
 {
   "nodes": [
     {
-      "id": "formula/ch03_translation_matrix",
-      "label": "平移矩阵",
-      "type": "formula",
-      "chapter": "03_图像几何变换",
-      "path": "wiki/03_图像几何变换/3.1.1_图像的平移.md"
-    },
-    {
-      "id": "formula/ch03_rotation_matrix",
-      "label": "旋转矩阵",
-      "type": "formula",
-      "chapter": "03_图像几何变换",
-      "path": "wiki/03_图像几何变换/3.1.3_图像的旋转.md"
-    },
-    {
-      "id": "formula/ch03_affine_matrix",
-      "label": "齐次仿射矩阵",
-      "type": "formula",
-      "chapter": "03_图像几何变换",
-      "path": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换.md"
-    },
-    {
-      "id": "concept/ch03_reverse_mapping",
-      "label": "反向映射",
+      "id": "concept/ch03_bilinear_interpolation",
+      "label": "双线性插值",
       "type": "concept",
       "chapter": "03_图像几何变换",
-      "path": "wiki/03_图像几何变换/README.md"
+      "path": "wiki/03_图像几何变换/3.2.2_图像的放大.md"
     },
     {
       "id": "concept/ch03_nearest_interpolation",
@@ -36,39 +15,25 @@
       "path": "wiki/03_图像几何变换/3.2.2_图像的放大.md"
     },
     {
-      "id": "concept/ch03_bilinear_interpolation",
-      "label": "双线性插值",
+      "id": "concept/ch03_reverse_mapping",
+      "label": "反向映射",
       "type": "concept",
       "chapter": "03_图像几何变换",
-      "path": "wiki/03_图像几何变换/3.2.2_图像的放大.md"
+      "path": "wiki/03_图像几何变换/README.md"
     },
     {
-      "id": "examples/03_geometric_transform/image_translation.py",
-      "label": "image_translation.py",
-      "type": "code",
-      "chapter": "03_图像几何变换",
-      "path": "examples/03_geometric_transform/image_translation.py"
+      "id": "concept/ch04_gaussian_noise",
+      "label": "高斯噪声",
+      "type": "concept",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.1_图像噪声.md"
     },
     {
-      "id": "examples/03_geometric_transform/image_rotation.py",
-      "label": "image_rotation.py",
-      "type": "code",
-      "chapter": "03_图像几何变换",
-      "path": "examples/03_geometric_transform/image_rotation.py"
-    },
-    {
-      "id": "examples/03_geometric_transform/image_resize.py",
-      "label": "image_resize.py",
-      "type": "code",
-      "chapter": "03_图像几何变换",
-      "path": "examples/03_geometric_transform/image_resize.py"
-    },
-    {
-      "id": "examples/03_geometric_transform/image_shear.py",
-      "label": "image_shear.py",
-      "type": "code",
-      "chapter": "03_图像几何变换",
-      "path": "examples/03_geometric_transform/image_shear.py"
+      "id": "concept/ch04_salt_pepper_noise",
+      "label": "椒盐噪声",
+      "type": "concept",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.1_图像噪声.md"
     },
     {
       "id": "examples/03_geometric_transform/affine_transform.py",
@@ -83,110 +48,1675 @@
       "type": "code",
       "chapter": "03_图像几何变换",
       "path": "examples/03_geometric_transform/geometric_correction.py"
+    },
+    {
+      "id": "examples/03_geometric_transform/image_resize.py",
+      "label": "image_resize.py",
+      "type": "code",
+      "chapter": "03_图像几何变换",
+      "path": "examples/03_geometric_transform/image_resize.py"
+    },
+    {
+      "id": "examples/03_geometric_transform/image_rotation.py",
+      "label": "image_rotation.py",
+      "type": "code",
+      "chapter": "03_图像几何变换",
+      "path": "examples/03_geometric_transform/image_rotation.py"
+    },
+    {
+      "id": "examples/03_geometric_transform/image_shear.py",
+      "label": "image_shear.py",
+      "type": "code",
+      "chapter": "03_图像几何变换",
+      "path": "examples/03_geometric_transform/image_shear.py"
+    },
+    {
+      "id": "examples/03_geometric_transform/image_translation.py",
+      "label": "image_translation.py",
+      "type": "code",
+      "chapter": "03_图像几何变换",
+      "path": "examples/03_geometric_transform/image_translation.py"
+    },
+    {
+      "id": "examples/04_image_denoising/k_nearest_mean_filter.py",
+      "label": "k_nearest_mean_filter.py",
+      "type": "code",
+      "chapter": "04_图像去噪",
+      "path": "examples/04_image_denoising/k_nearest_mean_filter.py"
+    },
+    {
+      "id": "examples/04_image_denoising/mean_filter.py",
+      "label": "mean_filter.py",
+      "type": "code",
+      "chapter": "04_图像去噪",
+      "path": "examples/04_image_denoising/mean_filter.py"
+    },
+    {
+      "id": "examples/04_image_denoising/median_filter.py",
+      "label": "median_filter.py",
+      "type": "code",
+      "chapter": "04_图像去噪",
+      "path": "examples/04_image_denoising/median_filter.py"
+    },
+    {
+      "id": "examples/04_image_denoising/non_local_means_filter.py",
+      "label": "non_local_means_filter.py",
+      "type": "code",
+      "chapter": "04_图像去噪",
+      "path": "examples/04_image_denoising/non_local_means_filter.py"
+    },
+    {
+      "id": "examples/04_image_denoising/symmetric_nearest_mean_filter.py",
+      "label": "symmetric_nearest_mean_filter.py",
+      "type": "code",
+      "chapter": "04_图像去噪",
+      "path": "examples/04_image_denoising/symmetric_nearest_mean_filter.py"
+    },
+    {
+      "id": "examples/05_image_sharpening/canny_edge_detection.py",
+      "label": "canny_edge_detection.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/05_image_sharpening/laplacian_operator.py",
+      "label": "laplacian_operator.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/05_image_sharpening/log_filter.py",
+      "label": "log_filter.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/05_image_sharpening/prewitt_operator.py",
+      "label": "prewitt_operator.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/05_image_sharpening/roberts_operator.py",
+      "label": "roberts_operator.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/05_image_sharpening/sobel_operator.py",
+      "label": "sobel_operator.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/06_image_segmentation/max_entropy_threshold.py",
+      "label": "max_entropy_threshold.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/06_image_segmentation/otsu_threshold.py",
+      "label": "otsu_threshold.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/06_image_segmentation/region_growing.py",
+      "label": "region_growing.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/06_image_segmentation/threshold_segmentation.py",
+      "label": "threshold_segmentation.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/07_binary_image_processing/connected_component_labeling.py",
+      "label": "connected_component_labeling.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/07_binary_image_processing/contour_labeling.py",
+      "label": "contour_labeling.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/07_binary_image_processing/erosion_dilation.py",
+      "label": "erosion_dilation.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/07_binary_image_processing/opening_closing.py",
+      "label": "opening_closing.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/07_binary_image_processing/thinning.py",
+      "label": "thinning.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/08_color_image_processing/color_compensation.py",
+      "label": "color_compensation.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/08_color_image_processing/color_spaces.py",
+      "label": "color_spaces.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/08_color_image_processing/gray_world.py",
+      "label": "gray_world.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/08_color_image_processing/white_balance.py",
+      "label": "white_balance.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/09_image_transform/one_dimensional_fourier_transform.py",
+      "label": "one_dimensional_fourier_transform.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/09_image_transform/spectrum_visualization.py",
+      "label": "spectrum_visualization.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/09_image_transform/two_dimensional_fft.py",
+      "label": "two_dimensional_fft.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/09_image_transform/wavelet_decomposition.py",
+      "label": "wavelet_decomposition.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/09_image_transform/wavelet_denoising.py",
+      "label": "wavelet_denoising.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/10_image_compression/huffman_encoding_demo.py",
+      "label": "huffman_encoding_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/10_image_compression/jpeg_idea_demo.py",
+      "label": "jpeg_idea_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/10_image_compression/rle_encoding.py",
+      "label": "rle_encoding.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/10_image_compression/wavelet_compression_demo.py",
+      "label": "wavelet_compression_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/11_deep_learning_image_processing/alexnet_structure_demo.py",
+      "label": "alexnet_structure_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/11_deep_learning_image_processing/cnn_layers_demo.py",
+      "label": "cnn_layers_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/11_deep_learning_image_processing/lenet5_structure_demo.py",
+      "label": "lenet5_structure_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/11_deep_learning_image_processing/srcnn_structure_demo.py",
+      "label": "srcnn_structure_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "examples/11_deep_learning_image_processing/yolo_concept_demo.py",
+      "label": "yolo_concept_demo.py",
+      "kind": "code"
+    },
+    {
+      "id": "formula/ch03_affine_matrix",
+      "label": "齐次仿射矩阵",
+      "type": "formula",
+      "chapter": "03_图像几何变换",
+      "path": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换.md"
+    },
+    {
+      "id": "formula/ch03_rotation_matrix",
+      "label": "旋转矩阵",
+      "type": "formula",
+      "chapter": "03_图像几何变换",
+      "path": "wiki/03_图像几何变换/3.1.3_图像的旋转.md"
+    },
+    {
+      "id": "formula/ch03_translation_matrix",
+      "label": "平移矩阵",
+      "type": "formula",
+      "chapter": "03_图像几何变换",
+      "path": "wiki/03_图像几何变换/3.1.1_图像的平移.md"
+    },
+    {
+      "id": "formula/ch04_additive_noise",
+      "label": "加性噪声模型",
+      "type": "formula",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.1_图像噪声.md"
+    },
+    {
+      "id": "formula/ch04_mean_filter",
+      "label": "均值滤波公式",
+      "type": "formula",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.2_均值滤波.md"
+    },
+    {
+      "id": "formula/ch04_median_filter",
+      "label": "中值滤波公式",
+      "type": "formula",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.3_中值滤波.md"
+    },
+    {
+      "id": "formula/ch04_nlm_weight",
+      "label": "非局部均值权重",
+      "type": "formula",
+      "chapter": "04_图像去噪",
+      "path": "wiki/04_图像去噪/4.5_非局部均值滤波.md"
+    },
+    {
+      "id": "formula/ch05/Canny 双阈值",
+      "label": "Canny 双阈值",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/Laplacian 二阶差分",
+      "label": "Laplacian 二阶差分",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/LoG 公式",
+      "label": "LoG 公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/Prewitt 差分模板",
+      "label": "Prewitt 差分模板",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/Roberts 交叉差分模板",
+      "label": "Roberts 交叉差分模板",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/Sobel 差分模板",
+      "label": "Sobel 差分模板",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch05/梯度幅值公式",
+      "label": "梯度幅值公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch06/Otsu 类间方差",
+      "label": "Otsu 类间方差",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch06/二值阈值函数",
+      "label": "二值阈值函数",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch06/区域生长相似性准则",
+      "label": "区域生长相似性准则",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch06/最大熵目标函数",
+      "label": "最大熵目标函数",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch06/累计概率阈值",
+      "label": "累计概率阈值",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/4/8 邻域",
+      "label": "4/8 邻域",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/开闭运算公式",
+      "label": "开闭运算公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/标签图",
+      "label": "标签图",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/细线化拓扑保持",
+      "label": "细线化拓扑保持",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/腐蚀公式",
+      "label": "腐蚀公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch07/膨胀公式",
+      "label": "膨胀公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch08/RGB 加色模型",
+      "label": "RGB 加色模型",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch08/灰色世界假设",
+      "label": "灰色世界假设",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch08/通道增益校正",
+      "label": "通道增益校正",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch08/颜色空间变换",
+      "label": "颜色空间变换",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch09/DFT 公式",
+      "label": "DFT 公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch09/FFT 复杂度",
+      "label": "FFT 复杂度",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch09/小波多尺度分解",
+      "label": "小波多尺度分解",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch09/小波阈值去噪",
+      "label": "小波阈值去噪",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch09/频谱幅值",
+      "label": "频谱幅值",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch10/压缩比",
+      "label": "压缩比",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch10/小波稀疏系数",
+      "label": "小波稀疏系数",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch10/平均码长",
+      "label": "平均码长",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch10/量化公式",
+      "label": "量化公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch11/BN 公式",
+      "label": "BN 公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch11/ReLU 函数",
+      "label": "ReLU 函数",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch11/Softmax 分类",
+      "label": "Softmax 分类",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch11/卷积层公式",
+      "label": "卷积层公式",
+      "kind": "formula"
+    },
+    {
+      "id": "formula/ch11/检测框输出",
+      "label": "检测框输出",
+      "kind": "formula"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.1_图像细节的基本特征.md",
+      "label": "图像细节",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "label": "Roberts 算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "label": "Sobel 算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "label": "Prewitt 算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "label": "一阶微分算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "label": "Laplacian 算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "label": "二阶微分算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "label": "Canny 算子",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "label": "LoG 滤波",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/06_图像的分割/6.1.1_p-参数法.md",
+      "label": "p-参数法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/06_图像的分割/6.1.2_最大熵方法.md",
+      "label": "最大熵方法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法.md",
+      "label": "Otsu 阈值法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "label": "阈值分割",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "label": "区域生长",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.1.1_连接与点特性.md",
+      "label": "7.1.1 连接与点特性",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.1.2_几何特征.md",
+      "label": "7.1.2 几何特征",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "label": "7.1 二值图像中的基本概念",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.2.1_腐蚀.md",
+      "label": "7.2.1 腐蚀",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.2.2_膨胀.md",
+      "label": "7.2.2 膨胀",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "label": "7.2 腐蚀与膨胀",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.3.1_开运算.md",
+      "label": "7.3.1 开运算",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.3.2_闭运算.md",
+      "label": "7.3.2 闭运算",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "label": "7.3 开运算与闭运算",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.4.1_连通域标签法.md",
+      "label": "7.4.1 连通域标签法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.4.2_轮廓标签法.md",
+      "label": "7.4.2 轮廓标签法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "label": "7.4 贴标签",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "label": "7.5 细线化方法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/07_二值图像处理/7.x_习题.md",
+      "label": "7.x 习题",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.1_彩色的形成原理与基本概念.md",
+      "label": "8.1 彩色的形成原理与基本概念",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.2.1_计算颜色模型系统.md",
+      "label": "8.2.1 计算颜色模型系统",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.2.2_视觉颜色模型系统.md",
+      "label": "8.2.2 视觉颜色模型系统",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.2.3_工业颜色模型系统.md",
+      "label": "8.2.3 工业颜色模型系统",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "label": "8.2 表色系",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.3.1_白平衡法.md",
+      "label": "8.3.1 白平衡法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "label": "8.3.2 灰色世界法",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "label": "8.3 色彩平衡",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "label": "8.4 彩色补偿",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/08_彩色图像处理/8.x_习题.md",
+      "label": "8.x 习题",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.1.1_一维傅里叶变换.md",
+      "label": "9.1.1 一维傅里叶变换",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.1.2_二维傅里叶变换.md",
+      "label": "9.1.2 二维傅里叶变换",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.1.3_快速傅里叶变换（FFT）.md",
+      "label": "9.1.3 快速傅里叶变换（FFT）",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.1.4_图像的频谱分布特性.md",
+      "label": "9.1.4 图像的频谱分布特性",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "label": "9.1 图像的频域变换（傅里叶变换）",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.2.1_连续小波变换.md",
+      "label": "9.2.1 连续小波变换",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.2.2_离散小波变换.md",
+      "label": "9.2.2 离散小波变换",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.2.3_小波的多尺度分解与重构.md",
+      "label": "9.2.3 小波的多尺度分解与重构",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.2_小波变换.md",
+      "label": "9.2 小波变换",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.3.1_应用于图像压缩.md",
+      "label": "9.3.1 应用于图像压缩",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.3.2_应用于图像融合.md",
+      "label": "9.3.2 应用于图像融合",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.3.3_应用于图像增强.md",
+      "label": "9.3.3 应用于图像增强",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.3.4_应用于图像去噪.md",
+      "label": "9.3.4 应用于图像去噪",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.3_小波变换在图像处理中的应用.md",
+      "label": "9.3 小波变换在图像处理中的应用",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/09_图像变换/9.x_习题.md",
+      "label": "9.x 习题",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.1.1_冗余的概念.md",
+      "label": "10.1.1 冗余的概念",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.1.2_图像中的冗余.md",
+      "label": "10.1.2 图像中的冗余",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.1_图像冗余的概念.md",
+      "label": "10.1 图像冗余的概念",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md",
+      "label": "10.2.1 行程编码（RLE）",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md",
+      "label": "10.2.2 哈夫曼（Huffman）编码",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.2_图像无损压缩编码.md",
+      "label": "10.2 图像无损压缩编码",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码.md",
+      "label": "10.3.1 彩色图像的有损编码",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.3.2_小波变换编码.md",
+      "label": "10.3.2 小波变换编码",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "label": "10.3 图像有损压缩编码",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/10_图像压缩编码/10.x_习题.md",
+      "label": "10.x 习题",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.1.1_卷积层.md",
+      "label": "11.1.1 卷积层",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.1.2_激活层.md",
+      "label": "11.1.2 激活层",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.1.3_BN层（批数据归一化处理层）.md",
+      "label": "11.1.3 BN层（批数据归一化处理层）",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.1.4_池化层.md",
+      "label": "11.1.4 池化层",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "label": "11.1 深度卷积网络的基本结构",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.2.1_SRCNN网络.md",
+      "label": "11.2.1 SRCNN网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.2.2_ESPCN网络.md",
+      "label": "11.2.2 ESPCN网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.2_超分辨率图像重建卷积网络.md",
+      "label": "11.2 超分辨率图像重建卷积网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.3.1_LeNet-5网络.md",
+      "label": "11.3.1 LeNet-5网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.3.2_AlexNet网络.md",
+      "label": "11.3.2 AlexNet网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.3_图像分类深度卷积网络.md",
+      "label": "11.3 图像分类深度卷积网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.4.1_Faster-RCNN网络.md",
+      "label": "11.4.1 Faster-RCNN网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.4.2_YOLO网络.md",
+      "label": "11.4.2 YOLO网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "label": "11.4 图像目标检测深度卷积网络",
+      "kind": "concept"
+    },
+    {
+      "id": "wiki/11_深度学习与图像处理/11.x_习题.md",
+      "label": "11.x 习题",
+      "kind": "concept"
     }
   ],
   "edges": [
     {
-      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "target": "wiki/03_图像几何变换/3.1.1_图像的平移",
-      "type": "GENERALIZES",
-      "description": "仿射变换统一表达平移。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "target": "wiki/03_图像几何变换/3.1.3_图像的旋转",
-      "type": "GENERALIZES",
-      "description": "仿射变换统一表达旋转。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "target": "wiki/03_图像几何变换/3.2.3_图像的错切",
-      "type": "GENERALIZES",
-      "description": "仿射变换统一表达错切。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "target": "formula/ch03_affine_matrix",
-      "type": "USES_FORMULA",
-      "description": "齐次坐标依赖 3x3 仿射矩阵表示。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.1.1_图像的平移",
-      "target": "formula/ch03_translation_matrix",
-      "type": "USES_FORMULA",
-      "description": "平移由齐次平移矩阵表示。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.1.3_图像的旋转",
-      "target": "formula/ch03_rotation_matrix",
-      "type": "USES_FORMULA",
-      "description": "旋转依赖旋转矩阵和旋转中心。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
-      "target": "concept/ch03_reverse_mapping",
-      "type": "PREREQUISITE",
-      "description": "几何畸变校正依赖反向坐标映射。"
+      "source": "concept/ch03_nearest_interpolation",
+      "target": "concept/ch03_bilinear_interpolation",
+      "type": "COMPARES_WITH"
     },
     {
       "source": "concept/ch03_reverse_mapping",
       "target": "concept/ch03_bilinear_interpolation",
-      "type": "PREREQUISITE",
-      "description": "反向映射得到浮点坐标后通常需要插值。"
+      "type": "PREREQUISITE"
     },
     {
-      "source": "concept/ch03_nearest_interpolation",
-      "target": "concept/ch03_bilinear_interpolation",
-      "type": "COMPARES_WITH",
-      "description": "最近邻更块状，双线性更平滑。"
+      "source": "concept/ch04_gaussian_noise",
+      "target": "wiki/04_图像去噪/4.2_均值滤波",
+      "type": "APPLIES_TO"
     },
     {
-      "source": "wiki/03_图像几何变换/3.2.1_图像的缩小",
-      "target": "wiki/03_图像几何变换/3.2.2_图像的放大",
-      "type": "COMPARES_WITH",
-      "description": "缩小关注降采样和混叠，放大关注新像素估计。"
-    },
-    {
-      "source": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
-      "target": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "type": "IMPROVES_OR_EXTENDS",
-      "description": "畸变校正把坐标映射从全局仿射扩展到更一般的非线性映射。"
+      "source": "concept/ch04_salt_pepper_noise",
+      "target": "wiki/04_图像去噪/4.3_中值滤波",
+      "type": "APPLIES_TO"
     },
     {
       "source": "wiki/03_图像几何变换/3.1.1_图像的平移",
       "target": "examples/03_geometric_transform/image_translation.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "平移示例代码。"
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.1.1_图像的平移",
+      "target": "formula/ch03_translation_matrix",
+      "type": "USES_FORMULA"
     },
     {
       "source": "wiki/03_图像几何变换/3.1.3_图像的旋转",
       "target": "examples/03_geometric_transform/image_rotation.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "旋转示例代码。"
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.1.3_图像的旋转",
+      "target": "formula/ch03_rotation_matrix",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.2.1_图像的缩小",
+      "target": "wiki/03_图像几何变换/3.2.2_图像的放大",
+      "type": "COMPARES_WITH"
     },
     {
       "source": "wiki/03_图像几何变换/3.2.2_图像的放大",
       "target": "examples/03_geometric_transform/image_resize.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "缩放示例代码。"
+      "type": "IMPLEMENTED_BY"
     },
     {
       "source": "wiki/03_图像几何变换/3.2.3_图像的错切",
       "target": "examples/03_geometric_transform/image_shear.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "错切示例代码。"
+      "type": "IMPLEMENTED_BY"
     },
     {
       "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
       "target": "examples/03_geometric_transform/affine_transform.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "仿射变换示例代码。"
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
+      "target": "formula/ch03_affine_matrix",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
+      "target": "wiki/03_图像几何变换/3.1.1_图像的平移",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
+      "target": "wiki/03_图像几何变换/3.1.3_图像的旋转",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
+      "target": "wiki/03_图像几何变换/3.2.3_图像的错切",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
+      "target": "concept/ch03_reverse_mapping",
+      "type": "PREREQUISITE"
     },
     {
       "source": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
       "target": "examples/03_geometric_transform/geometric_correction.py",
-      "type": "IMPLEMENTED_BY",
-      "description": "几何校正示例代码。"
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
+      "target": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.1_图像噪声",
+      "target": "formula/ch04_additive_noise",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.1_图像噪声",
+      "target": "wiki/04_图像去噪/4.2_均值滤波",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.2_均值滤波",
+      "target": "examples/04_image_denoising/mean_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.2_均值滤波",
+      "target": "formula/ch04_mean_filter",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.2_均值滤波",
+      "target": "wiki/04_图像去噪/4.3_中值滤波",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.2_均值滤波",
+      "target": "wiki/05_图像锐化/5.5_Canny算子",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.3_中值滤波",
+      "target": "examples/04_image_denoising/median_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.3_中值滤波",
+      "target": "formula/ch04_median_filter",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.4.1_K近邻均值滤波",
+      "target": "examples/04_image_denoising/k_nearest_mean_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.4.2_对称近邻均值滤波",
+      "target": "examples/04_image_denoising/symmetric_nearest_mean_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.4_边界保持类平滑滤波",
+      "target": "wiki/04_图像去噪/4.2_均值滤波",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.4_边界保持类平滑滤波",
+      "target": "wiki/04_图像去噪/4.4.1_K近邻均值滤波",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.4_边界保持类平滑滤波",
+      "target": "wiki/04_图像去噪/4.4.2_对称近邻均值滤波",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.5_非局部均值滤波",
+      "target": "examples/04_image_denoising/non_local_means_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.5_非局部均值滤波",
+      "target": "formula/ch04_nlm_weight",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/04_图像去噪/4.5_非局部均值滤波",
+      "target": "wiki/04_图像去噪/4.4_边界保持类平滑滤波",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "target": "examples/05_image_sharpening/roberts_operator.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "target": "formula/ch05/Roberts 交叉差分模板",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "target": "formula/ch05/梯度幅值公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "target": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "target": "examples/05_image_sharpening/sobel_operator.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "target": "formula/ch05/Sobel 差分模板",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "target": "formula/ch05/梯度幅值公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "target": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "target": "examples/05_image_sharpening/prewitt_operator.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "target": "formula/ch05/Prewitt 差分模板",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "target": "formula/ch05/梯度幅值公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "target": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "target": "wiki/04_图像去噪/4.1_图像噪声.md",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "target": "wiki/05_图像锐化/5.1_图像细节的基本特征.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "target": "examples/05_image_sharpening/laplacian_operator.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "target": "formula/ch05/Laplacian 二阶差分",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "target": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "target": "wiki/04_图像去噪/4.1_图像噪声.md",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "target": "wiki/05_图像锐化/5.1_图像细节的基本特征.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "target": "examples/05_image_sharpening/canny_edge_detection.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "target": "formula/ch05/Canny 双阈值",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "target": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "target": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "target": "examples/05_image_sharpening/log_filter.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "target": "formula/ch05/LoG 公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "target": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.1_p-参数法.md",
+      "target": "formula/ch06/累计概率阈值",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.1_p-参数法.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.2_最大熵方法.md",
+      "target": "examples/06_image_segmentation/max_entropy_threshold.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.2_最大熵方法.md",
+      "target": "formula/ch06/最大熵目标函数",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.2_最大熵方法.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法.md",
+      "target": "examples/06_image_segmentation/otsu_threshold.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法.md",
+      "target": "formula/ch06/Otsu 类间方差",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "target": "examples/06_image_segmentation/threshold_segmentation.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "target": "formula/ch06/二值阈值函数",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "target": "wiki/07_二值图像处理",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "target": "examples/06_image_segmentation/region_growing.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "target": "formula/ch06/区域生长相似性准则",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "target": "wiki/05_图像锐化/5.4_微分算子在边缘检测中的应用.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "target": "formula/ch07/4/8 邻域",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2.1_腐蚀.md",
+      "target": "formula/ch07/腐蚀公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2.1_腐蚀.md",
+      "target": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2.2_膨胀.md",
+      "target": "formula/ch07/膨胀公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2.2_膨胀.md",
+      "target": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "target": "examples/07_binary_image_processing/erosion_dilation.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "target": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.3.1_开运算.md",
+      "target": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.3.2_闭运算.md",
+      "target": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "target": "examples/07_binary_image_processing/opening_closing.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "target": "formula/ch07/开闭运算公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "target": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4.1_连通域标签法.md",
+      "target": "examples/07_binary_image_processing/connected_component_labeling.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4.1_连通域标签法.md",
+      "target": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4.2_轮廓标签法.md",
+      "target": "examples/07_binary_image_processing/contour_labeling.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4.2_轮廓标签法.md",
+      "target": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "target": "formula/ch07/标签图",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "target": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "target": "wiki/08_彩色图像处理",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "target": "examples/07_binary_image_processing/thinning.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "target": "formula/ch07/细线化拓扑保持",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "target": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.1_彩色的形成原理与基本概念.md",
+      "target": "formula/ch08/RGB 加色模型",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "target": "examples/08_color_image_processing/color_spaces.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "target": "formula/ch08/颜色空间变换",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "target": "wiki/08_彩色图像处理/8.1_彩色的形成原理与基本概念.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3.1_白平衡法.md",
+      "target": "examples/08_color_image_processing/white_balance.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3.1_白平衡法.md",
+      "target": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "target": "examples/08_color_image_processing/gray_world.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "target": "formula/ch08/灰色世界假设",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "target": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "target": "formula/ch08/通道增益校正",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "target": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "target": "examples/08_color_image_processing/color_compensation.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "target": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.1_一维傅里叶变换.md",
+      "target": "examples/09_image_transform/one_dimensional_fourier_transform.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.2_二维傅里叶变换.md",
+      "target": "examples/09_image_transform/two_dimensional_fft.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.3_快速傅里叶变换（FFT）.md",
+      "target": "formula/ch09/FFT 复杂度",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.3_快速傅里叶变换（FFT）.md",
+      "target": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.4_图像的频谱分布特性.md",
+      "target": "examples/09_image_transform/spectrum_visualization.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1.4_图像的频谱分布特性.md",
+      "target": "formula/ch09/频谱幅值",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "target": "formula/ch09/DFT 公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/09_图像变换/9.2.3_小波的多尺度分解与重构.md",
+      "target": "examples/09_image_transform/wavelet_decomposition.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/09_图像变换/9.2.3_小波的多尺度分解与重构.md",
+      "target": "formula/ch09/小波多尺度分解",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/09_图像变换/9.2_小波变换.md",
+      "target": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/09_图像变换/9.3.1_应用于图像压缩.md",
+      "target": "wiki/10_图像压缩编码",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/09_图像变换/9.3.4_应用于图像去噪.md",
+      "target": "examples/09_image_transform/wavelet_denoising.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/09_图像变换/9.3.4_应用于图像去噪.md",
+      "target": "formula/ch09/小波阈值去噪",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/09_图像变换/9.3_小波变换在图像处理中的应用.md",
+      "target": "wiki/09_图像变换/9.2_小波变换.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.1_图像冗余的概念.md",
+      "target": "formula/ch10/压缩比",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md",
+      "target": "examples/10_image_compression/rle_encoding.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md",
+      "target": "wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md",
+      "target": "examples/10_image_compression/huffman_encoding_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md",
+      "target": "formula/ch10/平均码长",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.2_图像无损压缩编码.md",
+      "target": "wiki/10_图像压缩编码/10.1_图像冗余的概念.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3.2_小波变换编码.md",
+      "target": "examples/10_image_compression/wavelet_compression_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3.2_小波变换编码.md",
+      "target": "formula/ch10/小波稀疏系数",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3.2_小波变换编码.md",
+      "target": "wiki/09_图像变换/9.3.1_应用于图像压缩.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "target": "examples/10_image_compression/jpeg_idea_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "target": "formula/ch10/量化公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "target": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "target": "wiki/10_图像压缩编码/10.1_图像冗余的概念.md",
+      "type": "PREREQUISITE"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.1_卷积层.md",
+      "target": "formula/ch11/卷积层公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.1_卷积层.md",
+      "target": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.2_激活层.md",
+      "target": "formula/ch11/ReLU 函数",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.2_激活层.md",
+      "target": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.3_BN层（批数据归一化处理层）.md",
+      "target": "formula/ch11/BN 公式",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.3_BN层（批数据归一化处理层）.md",
+      "target": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1.4_池化层.md",
+      "target": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "target": "examples/11_deep_learning_image_processing/cnn_layers_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "target": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "type": "COMPARES_WITH"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.2.1_SRCNN网络.md",
+      "target": "examples/11_deep_learning_image_processing/srcnn_structure_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.2.1_SRCNN网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.2_超分辨率图像重建卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.2.2_ESPCN网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.2_超分辨率图像重建卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.2_超分辨率图像重建卷积网络.md",
+      "target": "wiki/03_图像几何变换/3.2.2_图像的放大.md",
+      "type": "IMPROVES_OR_EXTENDS"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.3.1_LeNet-5网络.md",
+      "target": "examples/11_deep_learning_image_processing/lenet5_structure_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.3.1_LeNet-5网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.3_图像分类深度卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.3.2_AlexNet网络.md",
+      "target": "examples/11_deep_learning_image_processing/alexnet_structure_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.3.2_AlexNet网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.3_图像分类深度卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.3_图像分类深度卷积网络.md",
+      "target": "formula/ch11/Softmax 分类",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4.1_Faster-RCNN网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4.2_YOLO网络.md",
+      "target": "examples/11_deep_learning_image_processing/yolo_concept_demo.py",
+      "type": "IMPLEMENTED_BY"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4.2_YOLO网络.md",
+      "target": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "type": "APPLIES_TO"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4.2_YOLO网络.md",
+      "target": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "type": "GENERALIZES"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "target": "formula/ch11/检测框输出",
+      "type": "USES_FORMULA"
+    },
+    {
+      "source": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "target": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "type": "COMPARES_WITH"
     }
   ]
 }

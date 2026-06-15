@@ -1,14 +1,22 @@
-"""对应章节：11.3.2 AlexNet 网络
+"""Chapter 11.3.2 AlexNet structure demo."""
 
-运行方式：
-    python 11_deep_learning_image_processing/alexnet_structure_demo.py [可选图片路径]
-"""
+from __future__ import annotations
 
-from pathlib import Path
-import sys
+import argparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from _common import main
+from _utils import add_output_argument, draw_blocks, print_result, save_image
+
+
+def draw_alexnet_structure() -> object:
+    return draw_blocks(["Input", "Conv\nstack", "ReLU", "Pool", "Dropout", "FC"], "AlexNet deeper CNN structure")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Draw AlexNet structure.")
+    add_output_argument(parser, "ch11_alexnet_structure.png")
+    args = parser.parse_args()
+    output = save_image(args.output, draw_alexnet_structure())
+    print_result("draw_alexnet_structure", output)
 
 
 if __name__ == "__main__":

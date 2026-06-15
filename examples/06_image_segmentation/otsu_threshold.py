@@ -1,14 +1,33 @@
-"""对应章节：6.1.3 最大类间、类内方差比法
+"""Chapter 6.1.3 Otsu maximum between-class variance thresholding.
 
-运行方式：
-    python 06_image_segmentation/otsu_threshold.py [可选图片路径]
+Run:
+    python examples/06_image_segmentation/otsu_threshold.py
 """
 
-from pathlib import Path
-import sys
+from __future__ import annotations
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from _common import main
+import argparse
+
+import cv2
+import numpy as np
+
+from _utils import add_common_arguments, print_result, read_gray, save_image
+
+
+def otsu_threshold(image: np.ndarray) -> tuple[float, np.ndarray]:
+    threshold, binary = cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    return float(threshold), binary
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Otsu threshold segmentation.")
+    add_common_arguments(parser, "ch06_otsu_threshold.png")
+    args = parser.parse_args()
+
+    image, source = read_gray(args.input)
+    threshold, result = otsu_threshold(image)
+    output = save_image(args.output, result)
+    print_result(source, "otsu_threshold", output, threshold)
 
 
 if __name__ == "__main__":

@@ -1,3 +1,3 @@
-# 09_image_transform
+# 第 9 章 图像变换代码示例
 
-本目录保存对应章节的教学示例。
+这些脚本默认使用 `assets/sample_images/sample_gray.png`，输出写入 `examples/output/`。

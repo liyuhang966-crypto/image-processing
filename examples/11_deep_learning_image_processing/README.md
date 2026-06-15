@@ -1,3 +1,3 @@
-# 11_deep_learning_image_processing
+# 第 11 章 深度学习与图像处理代码示例
 
-本目录保存对应章节的教学示例。
+这些脚本只生成原创结构示意图，不下载模型或数据集，输出写入 `examples/output/`。

@@ -8,7 +8,14 @@
 - 第 1 章已完成基础细化，可作为概念入口。
 - 第 2 章“图像增强”已完成精品样板化，包含公式、步骤、原创教学图示、代码链接和复习问题。
 - 第 3 章“图像几何变换”已升级为第二个精品样板章节，包含可学习 wiki、可运行代码、原创图示和语义图谱关系。
-- 第 4 章到第 11 章已按模板升级为结构化精修初版，后续可按第 2/3 章样板继续深化。
+- 第 4 章“图像去噪”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 5 章“图像锐化”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 6 章“图像的分割”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 7 章“二值图像处理”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 8 章“彩色图像处理”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 9 章“图像变换”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 10 章“图像压缩编码”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
+- 第 11 章“深度学习与图像处理”已升级为精品样板，包含原创图示、独立代码示例和语义图谱关系。
 - `raw/books/`、`raw/extracted_text/` 和 `raw/temp/` 只用于本地处理，不应提交公开仓库；公开仓库不包含原书 PDF 或原始抽取文本。
 
 ## 用 Obsidian 打开
@@ -16,7 +23,8 @@
 1. 在 Obsidian 中选择“打开本地仓库”。
 2. 选择仓库目录：`D:\image-processing`。
 3. 从 `index.md` 或 `wiki/00_导航.md` 进入知识库。
-4. 如果需要查看内嵌 PDF，请按下一节放入合法本地副本。
+4. 如果 Graph View 出现大量 `README`、维护文档或孤立节点，运行 `python tools/configure_obsidian_graph.py` 重置本地图谱过滤条件。
+5. 如果需要查看内嵌 PDF，请按下一节放入合法本地副本。
 
 ## 本地 PDF 阅读
 
@@ -53,11 +61,87 @@ python examples/03_geometric_transform/image_resize.py --scale-x 0.75 --scale-y 
 python examples/03_geometric_transform/geometric_correction.py --strength 0.18
 ```
 
+第 4 章图像去噪示例：
+
+```powershell
+python examples/04_image_denoising/mean_filter.py --kernel-size 5
+python examples/04_image_denoising/median_filter.py --kernel-size 5
+python examples/04_image_denoising/k_nearest_mean_filter.py --kernel-size 5 --k 8
+python examples/04_image_denoising/symmetric_nearest_mean_filter.py --kernel-size 5
+python examples/04_image_denoising/non_local_means_filter.py --h 10
+```
+
+第 5 章图像锐化示例：
+
+```powershell
+python examples/05_image_sharpening/sobel_operator.py --kernel-size 3 --direction both
+python examples/05_image_sharpening/laplacian_operator.py --amount 0.7
+python examples/05_image_sharpening/canny_edge_detection.py --low 60 --high 160
+python examples/05_image_sharpening/log_filter.py --sigma 1.2
+```
+
+第 6 章图像分割示例：
+
+```powershell
+python examples/06_image_segmentation/threshold_segmentation.py --threshold 128
+python examples/06_image_segmentation/max_entropy_threshold.py
+python examples/06_image_segmentation/otsu_threshold.py
+python examples/06_image_segmentation/region_growing.py --seed-x 85 --seed-y 120 --tolerance 28
+```
+
+第 7 章二值图像处理示例：
+
+```powershell
+python examples/07_binary_image_processing/erosion_dilation.py --operation both --kernel-size 5
+python examples/07_binary_image_processing/opening_closing.py --operation both --kernel-size 5
+python examples/07_binary_image_processing/connected_component_labeling.py --connectivity 8
+python examples/07_binary_image_processing/contour_labeling.py --min-area 30
+python examples/07_binary_image_processing/thinning.py --max-iterations 80
+```
+
+第 8 章彩色图像处理示例：
+
+```powershell
+python examples/08_color_image_processing/color_spaces.py --space hsv
+python examples/08_color_image_processing/white_balance.py --percentile 95
+python examples/08_color_image_processing/gray_world.py
+python examples/08_color_image_processing/color_compensation.py --red-gain 1.05 --blue-gain 0.95
+```
+
+第 9 章图像变换示例：
+
+```powershell
+python examples/09_image_transform/one_dimensional_fourier_transform.py
+python examples/09_image_transform/two_dimensional_fft.py
+python examples/09_image_transform/spectrum_visualization.py --gamma 0.4
+python examples/09_image_transform/wavelet_decomposition.py --wavelet haar
+python examples/09_image_transform/wavelet_denoising.py --threshold 12
+```
+
+第 10 章图像压缩编码示例：
+
+```powershell
+python examples/10_image_compression/rle_encoding.py --threshold 128
+python examples/10_image_compression/huffman_encoding_demo.py
+python examples/10_image_compression/jpeg_idea_demo.py --quality 24
+python examples/10_image_compression/wavelet_compression_demo.py --keep-ratio 0.15
+```
+
+第 11 章深度学习与图像处理示例：
+
+```powershell
+python examples/11_deep_learning_image_processing/cnn_layers_demo.py
+python examples/11_deep_learning_image_processing/srcnn_structure_demo.py
+python examples/11_deep_learning_image_processing/lenet5_structure_demo.py
+python examples/11_deep_learning_image_processing/alexnet_structure_demo.py
+python examples/11_deep_learning_image_processing/yolo_concept_demo.py
+```
+
 默认输入为 `assets/sample_images/` 中的合成图片，输出写入 `examples/output/`，该目录已被 `.gitignore` 忽略。
 
 ## 重新生成图谱
 
-`wiki/` 的 Obsidian 双链是知识图谱主数据源，`graph/semantic_edges.json` 补充第 3 章语义关系：
+`wiki/` 的 Obsidian 双链是知识图谱主数据源，`graph/semantic_edges.json` 补充精品章节的语义关系：
 
 ```powershell
 python tools/build_graph_from_wiki.py
@@ -65,9 +149,15 @@ python tools/build_graph_from_wiki.py
 
 输出：
 
-- `graph/knowledge_graph.json`
-- `graph/mermaid_graph.md`
-- `graph/knowledge_graph.html`
+- `graph/knowledge_graph.json`：完整机器可读图谱。
+- `graph/mermaid_graph.md`：清爽学习视图，只画章节包含关系和语义关系。
+- `graph/knowledge_graph.html`：按章节浏览节点的轻量 HTML。
+
+Obsidian 自带 Graph View 是本地 UI 状态，不提交 `.obsidian/`。需要恢复清爽视图时运行：
+
+```powershell
+python tools/configure_obsidian_graph.py
+```
 
 ## 健康检查
 
@@ -87,3 +177,4 @@ python tools/health_check.py
 3. 示例代码必须能独立运行，并使用合成样例或用户自备图片。
 4. 将新的语义关系写入 `graph/semantic_edges.json`，再重建图谱。
 5. 提交前运行完整健康检查。
+

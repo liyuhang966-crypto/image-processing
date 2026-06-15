@@ -1,14 +1,36 @@
-"""对应章节：10.3 图像有损压缩编码
+"""Chapter 10.3 JPEG-style lossy compression idea."""
 
-运行方式：
-    python 10_image_compression/jpeg_idea_demo.py [可选图片路径]
-"""
+from __future__ import annotations
 
-from pathlib import Path
-import sys
+import argparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from _common import main
+import cv2
+import numpy as np
+
+from _utils import add_common_arguments, print_result, read_gray, save_image
+
+
+def jpeg_block_demo(image: np.ndarray, block_size: int = 8, quality: int = 24) -> np.ndarray:
+    h, w = image.shape
+    out = np.zeros_like(image, dtype=np.float32)
+    q = max(1, int(quality))
+    for y in range(0, h - block_size + 1, block_size):
+        for x in range(0, w - block_size + 1, block_size):
+            block = image[y : y + block_size, x : x + block_size].astype(np.float32) - 128
+            coeff = cv2.dct(block)
+            quantized = np.round(coeff / q) * q
+            out[y : y + block_size, x : x + block_size] = cv2.idct(quantized) + 128
+    return np.clip(out, 0, 255).astype(np.uint8)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="JPEG block DCT quantization idea.")
+    add_common_arguments(parser, "ch10_jpeg_idea.png")
+    parser.add_argument("--quality", type=int, default=24)
+    args = parser.parse_args()
+    image, source = read_gray(args.input)
+    output = save_image(args.output, jpeg_block_demo(image, quality=args.quality))
+    print_result(source, "jpeg_block_demo", output)
 
 
 if __name__ == "__main__":
