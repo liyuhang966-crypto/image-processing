@@ -5,8 +5,11 @@ __pycache__/
 .obsidian/
 raw/books/*
 !raw/books/README.md
-raw/extracted_text/
-raw/temp/
+raw/extracted_text/*
+!raw/extracted_text/README.md
+raw/temp/*
+!raw/temp/README.md
+*.pdf
 *.tmp
 *.log
 .DS_Store
