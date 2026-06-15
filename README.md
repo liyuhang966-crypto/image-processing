@@ -23,7 +23,8 @@
 1. 在 Obsidian 中选择“打开本地仓库”。
 2. 选择仓库目录：`D:\image-processing`。
 3. 从 `index.md` 或 `wiki/00_导航.md` 进入知识库。
-4. 如果需要查看内嵌 PDF，请按下一节放入合法本地副本。
+4. 如果 Graph View 出现大量 `README`、维护文档或孤立节点，运行 `python tools/configure_obsidian_graph.py` 重置本地图谱过滤条件。
+5. 如果需要查看内嵌 PDF，请按下一节放入合法本地副本。
 
 ## 本地 PDF 阅读
 
@@ -140,7 +141,7 @@ python examples/11_deep_learning_image_processing/yolo_concept_demo.py
 
 ## 重新生成图谱
 
-`wiki/` 的 Obsidian 双链是知识图谱主数据源，`graph/semantic_edges.json` 补充第 3 章、第 4 章、第 5 章和第 6 章语义关系：
+`wiki/` 的 Obsidian 双链是知识图谱主数据源，`graph/semantic_edges.json` 补充精品章节的语义关系：
 
 ```powershell
 python tools/build_graph_from_wiki.py
@@ -148,9 +149,15 @@ python tools/build_graph_from_wiki.py
 
 输出：
 
-- `graph/knowledge_graph.json`
-- `graph/mermaid_graph.md`
-- `graph/knowledge_graph.html`
+- `graph/knowledge_graph.json`：完整机器可读图谱。
+- `graph/mermaid_graph.md`：清爽学习视图，只画章节包含关系和语义关系。
+- `graph/knowledge_graph.html`：按章节浏览节点的轻量 HTML。
+
+Obsidian 自带 Graph View 是本地 UI 状态，不提交 `.obsidian/`。需要恢复清爽视图时运行：
+
+```powershell
+python tools/configure_obsidian_graph.py
+```
 
 ## 健康检查
 

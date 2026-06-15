@@ -1,13 +1,6 @@
 {
   "nodes": [
     {
-      "id": "wiki/00_导航",
-      "label": "00_导航",
-      "type": "note",
-      "chapter": "wiki",
-      "path": "wiki/00_导航.md"
-    },
-    {
       "id": "wiki/01_引言/1.1_数字图像处理、计算机视觉、计算机图形学",
       "label": "1.1_数字图像处理、计算机视觉、计算机图形学",
       "type": "note",
@@ -981,13 +974,6 @@
       "path": "wiki/98_习题索引/参考文献.md"
     },
     {
-      "id": "wiki/99_术语表",
-      "label": "99_术语表",
-      "type": "note",
-      "chapter": "wiki",
-      "path": "wiki/99_术语表.md"
-    },
-    {
       "id": "concept/ch03_bilinear_interpolation",
       "label": "双线性插值",
       "type": "concept",
@@ -1886,12 +1872,6 @@
   ],
   "edges": [
     {
-      "source": "wiki/00_导航",
-      "target": "wiki/11_深度学习与图像处理/README",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
       "source": "wiki/01_引言/README",
       "target": "wiki/01_引言/1.1_数字图像处理、计算机视觉、计算机图形学",
       "type": "CONTAINS",
@@ -2176,54 +2156,6 @@
     {
       "source": "wiki/01_引言/1.x_习题",
       "target": "wiki/01_引言/1.3.2_数字图像的灰度直方图",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.1_数字图像处理、计算机视觉、计算机图形学",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.2_数字图像处理系统的结构",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.3_数字图像的基本概念",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.3.1_数字图像的数值描述",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.3.2_数字图像的灰度直方图",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.4_数字图像处理的主要研究内容",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.5_本书的结构安排",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/01_引言/README",
-      "target": "wiki/01_引言/1.x_习题",
       "type": "LINKS_TO",
       "description": "Obsidian wiki link."
     },
@@ -2590,84 +2522,6 @@
     {
       "source": "wiki/02_图像增强/2.x_习题",
       "target": "wiki/02_图像增强/2.8_Retinex图像增强方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.1_γ校正",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.2_对比度线性展宽",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.3.1_灰级窗",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.3.2_灰级窗切片",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.3_灰级窗与灰级窗切片",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.4.1_线性动态范围调整",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.4.2_非线性动态范围调整",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.4_动态范围调整",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.5_直方图均衡化",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.6_自适应直方图均衡化",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.7_伪彩色",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.8_Retinex图像增强方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/02_图像增强/README",
-      "target": "wiki/02_图像增强/2.x_习题",
       "type": "LINKS_TO",
       "description": "Obsidian wiki link."
     },
@@ -2960,72 +2814,6 @@
       "description": "Obsidian wiki link."
     },
     {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.1_图像的位置变换",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.1.1_图像的平移",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.1.2_图像的镜像",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.1.3_图像的旋转",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.2_图像的形状变换",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.2.1_图像的缩小",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.2.2_图像的放大",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.2.3_图像的错切",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.4_图像几何畸变的校正",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/03_图像几何变换/README",
-      "target": "wiki/03_图像几何变换/3.x_习题",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
       "source": "wiki/04_图像去噪/README",
       "target": "wiki/04_图像去噪/4.1_图像噪声",
       "type": "CONTAINS",
@@ -3302,78 +3090,6 @@
       "description": "Obsidian wiki link."
     },
     {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.1_图像噪声",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.2_均值滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.2.1_均值滤波的原理",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.2.2_均值滤波方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.3_中值滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.3.1_中值滤波的原理",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.3.2_中值滤波方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.4_边界保持类平滑滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.4.1_K近邻均值滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.4.2_对称近邻均值滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.5_非局部均值滤波",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/04_图像去噪/README",
-      "target": "wiki/04_图像去噪/4.x_习题",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
       "source": "wiki/05_图像锐化/README",
       "target": "wiki/05_图像锐化/5.1_图像细节的基本特征",
       "type": "CONTAINS",
@@ -3644,84 +3360,6 @@
       "description": "Obsidian wiki link."
     },
     {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.1_图像细节的基本特征",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.2_一阶微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.2.1_具有方向性的一阶微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.2.3_Sobel微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.2.4_Priwitt微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.3_二阶微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.3.1_Laplacian微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.3.2_Wallis微分算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.4_微分算子在边缘检测中的应用",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.5_Canny算子",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.6_LOG滤波算法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/05_图像锐化/README",
-      "target": "wiki/05_图像锐化/5.x_习题",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
       "source": "wiki/06_图像的分割/README",
       "target": "wiki/06_图像的分割/6.1.1_p-参数法",
       "type": "CONTAINS",
@@ -3850,42 +3488,6 @@
     {
       "source": "wiki/06_图像的分割/6.x_习题",
       "target": "wiki/07_二值图像处理/README",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.1_阈值分割方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.1.1_p-参数法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.1.2_最大熵方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.2_区域生长分割方法",
-      "type": "LINKS_TO",
-      "description": "Obsidian wiki link."
-    },
-    {
-      "source": "wiki/06_图像的分割/README",
-      "target": "wiki/06_图像的分割/6.x_习题",
       "type": "LINKS_TO",
       "description": "Obsidian wiki link."
     },

@@ -16,6 +16,17 @@ from pathlib import Path
 
 
 WIKI_LINK_RE = re.compile(r"\[\[([^\]#|]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]")
+ROOT_UTILITY_NOTES = {"00_导航.md", "99_术语表.md"}
+MERMAID_RELATION_TYPES = {
+    "CONTAINS",
+    "PREREQUISITE",
+    "COMPARES_WITH",
+    "GENERALIZES",
+    "IMPLEMENTED_BY",
+    "USES_FORMULA",
+    "IMPROVES_OR_EXTENDS",
+    "APPLIES_TO",
+}
 
 
 @dataclass(frozen=True)
@@ -35,9 +46,21 @@ def note_label(path: Path) -> str:
     return path.stem if path.stem != "README" else path.parent.name
 
 
+def is_root_utility_note(path: Path, wiki_dir: Path) -> bool:
+    return path.parent == wiki_dir and path.name in ROOT_UTILITY_NOTES
+
+
+def should_read_wiki_links(note: WikiNote, wiki_dir: Path) -> bool:
+    if note.path.name == "README.md":
+        return False
+    return not is_root_utility_note(note.path, wiki_dir)
+
+
 def load_notes(wiki_dir: Path) -> list[WikiNote]:
     notes: list[WikiNote] = []
     for path in sorted(wiki_dir.rglob("*.md")):
+        if is_root_utility_note(path, wiki_dir):
+            continue
         rel = normalize_path(path.relative_to(wiki_dir.parent))
         chapter = path.parent.name if path.parent != wiki_dir else "wiki"
         notes.append(
@@ -113,21 +136,22 @@ def build_wiki_graph(wiki_dir: str | Path = "wiki") -> dict[str, list[dict[str, 
                         }
                     )
 
-        text = note.path.read_text(encoding="utf-8")
-        for raw_target in WIKI_LINK_RE.findall(text):
-            target_id = resolve_link(raw_target, lookup)
-            if target_id and target_id != note.note_id:
-                key = (note.note_id, target_id, "LINKS_TO")
-                if key not in edge_keys:
-                    edge_keys.add(key)
-                    edges.append(
-                        {
-                            "source": note.note_id,
-                            "target": target_id,
-                            "type": "LINKS_TO",
-                            "description": "Obsidian wiki link.",
-                        }
-                    )
+        if should_read_wiki_links(note, root):
+            text = note.path.read_text(encoding="utf-8")
+            for raw_target in WIKI_LINK_RE.findall(text):
+                target_id = resolve_link(raw_target, lookup)
+                if target_id and target_id != note.note_id:
+                    key = (note.note_id, target_id, "LINKS_TO")
+                    if key not in edge_keys:
+                        edge_keys.add(key)
+                        edges.append(
+                            {
+                                "source": note.note_id,
+                                "target": target_id,
+                                "type": "LINKS_TO",
+                                "description": "Obsidian wiki link.",
+                            }
+                        )
 
     graph = {"nodes": nodes, "edges": edges}
     merge_semantic_overlay(graph, Path(wiki_dir).parent / "graph" / "semantic_edges.json")
@@ -159,12 +183,14 @@ def write_mermaid(graph: dict[str, list[dict[str, str]]], output_path: Path) -> 
     lines = [
         "# Mermaid 知识图谱",
         "",
-        "由 `tools/build_graph_from_wiki.py` 从 `wiki/` 的 Obsidian 链接生成。",
+        "`tools/build_graph_from_wiki.py` 从 `wiki/` 生成。为保证图可读，此视图只展示章节包含关系和人工维护的语义关系；细粒度 `LINKS_TO` 仍保留在 `knowledge_graph.json` 中。",
         "",
         "```mermaid",
         "graph TD",
     ]
     for edge in graph["edges"]:
+        if edge["type"] not in MERMAID_RELATION_TYPES:
+            continue
         source = edge["source"]
         target = edge["target"]
         relation = edge["type"]
