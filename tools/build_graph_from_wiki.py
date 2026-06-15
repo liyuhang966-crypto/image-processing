@@ -503,6 +503,337 @@ render();
     output_path.write_text(template.replace("__GRAPH_DATA__", payload), encoding="utf-8")
 
 
+def write_html(graph: dict[str, list[dict[str, str]]], output_path: Path) -> None:
+    payload = html.escape(json.dumps(graph, ensure_ascii=False))
+    template = """<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>数字图像处理知识图谱</title>
+  <style>
+    :root {
+      --bg: #1b1c1f;
+      --panel: #23252a;
+      --ink: #f3f4f6;
+      --muted: #a6adbb;
+      --line: #787f8c;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: system-ui, sans-serif; }
+    main { padding: 16px 20px 22px; }
+    h1 { margin: 0 0 6px; font-size: 22px; font-weight: 700; }
+    .summary { margin: 0 0 12px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 10px 0 12px; }
+    .toolbar label { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border: 1px solid #343842; border-radius: 6px; background: var(--panel); color: #d7dce5; font-size: 12px; }
+    .stage { overflow: auto; border: 1px solid #30343b; border-radius: 8px; background: #17181b; }
+    svg { display: block; width: 100%; min-width: 1180px; height: min(82vh, 920px); min-height: 760px; }
+    .edge { fill: none; stroke: var(--line); stroke-opacity: .27; stroke-width: 1.05; }
+    .edge.spoke { stroke-opacity: .45; stroke-width: 1.4; }
+    .edge.contains { stroke-opacity: .28; }
+    .edge.semantic { stroke-opacity: .42; stroke-width: 1.35; stroke-dasharray: 4 4; }
+    .edge.cross { stroke-opacity: .20; stroke-width: .9; }
+    .node { stroke: rgba(255,255,255,.72); stroke-width: 1; }
+    .node.root { fill: #f8fafc; stroke: #f8fafc; }
+    .node.chapter { stroke-width: 1.7; }
+    .node.external { stroke-dasharray: 2 2; }
+    .root-label { fill: #f8fafc; font-size: 13px; font-weight: 700; text-anchor: middle; }
+    .chapter-label { fill: #f8fafc; font-size: 12px; font-weight: 700; text-anchor: middle; paint-order: stroke; stroke: #17181b; stroke-width: 3px; }
+    .note-label { fill: #e5e7eb; font-size: 9px; text-anchor: middle; paint-order: stroke; stroke: #17181b; stroke-width: 3px; opacity: 0; pointer-events: none; }
+    .show-labels .note-label { opacity: .92; }
+    .halo { fill: none; stroke-opacity: .16; stroke-width: 1.2; }
+    .legend { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 10px; color: #cbd5e1; font-size: 12px; }
+    .swatch { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>数字图像处理知识图谱</h1>
+  <p class="summary">径向章节簇布局：每章内容节点紧凑聚在一起，颜色按章节区分。默认显示章内双链和语义关系，跨章普通双链默认隐藏，避免网络被少数热点节点拉乱。</p>
+  <div class="toolbar" id="toolbar"></div>
+  <div class="legend" id="legend"></div>
+  <div class="stage"><svg id="graph" viewBox="0 0 1440 980" aria-label="数字图像处理知识图谱"></svg></div>
+</main>
+<script type="application/json" id="graph-data">__GRAPH_DATA__</script>
+<script>
+const graph = JSON.parse(document.getElementById("graph-data").textContent);
+const svg = document.getElementById("graph");
+const toolbar = document.getElementById("toolbar");
+const legend = document.getElementById("legend");
+const width = 1440;
+const height = 980;
+const center = { x: width / 2, y: height / 2 };
+const palette = [
+  "#60a5fa", "#f97316", "#34d399", "#f472b6", "#a78bfa", "#facc15",
+  "#22d3ee", "#fb7185", "#84cc16", "#c084fc", "#38bdf8", "#f59e0b"
+];
+const semanticTypes = new Set(["PREREQUISITE", "COMPARES_WITH", "GENERALIZES", "IMPLEMENTED_BY", "USES_FORMULA", "IMPROVES_OR_EXTENDS", "APPLIES_TO"]);
+const settings = {
+  contains: true,
+  internalLinks: true,
+  crossLinks: false,
+  semantic: true,
+  labels: false,
+};
+
+const controls = [
+  ["contains", "章节包含"],
+  ["internalLinks", "章内双链"],
+  ["crossLinks", "跨章双链"],
+  ["semantic", "语义关系"],
+  ["labels", "小节标签"],
+];
+
+for (const [key, labelText] of controls) {
+  const label = document.createElement("label");
+  const input = document.createElement("input");
+  input.type = "checkbox";
+  input.checked = settings[key];
+  input.addEventListener("change", () => {
+    settings[key] = input.checked;
+    render();
+  });
+  label.append(input, document.createTextNode(labelText));
+  toolbar.appendChild(label);
+}
+
+function chapterIndex(label) {
+  const match = String(label || "").match(/^(\\d+)/);
+  return match ? Number(match[1]) : 99;
+}
+
+function shortLabel(label) {
+  return String(label || "").replace(/^\\d+(?:\\.\\d+|\\.x)?_/, "");
+}
+
+function svgEl(name, attrs = {}) {
+  const el = document.createElementNS("http://www.w3.org/2000/svg", name);
+  for (const [key, value] of Object.entries(attrs)) el.setAttribute(key, value);
+  return el;
+}
+
+function buildLayout() {
+  const nodes = graph.nodes;
+  const byId = new Map(nodes.map((node) => [node.id, node]));
+  const chapterNodes = nodes
+    .filter((node) => node.type === "chapter" && String(node.id).startsWith("wiki/"))
+    .sort((a, b) => chapterIndex(a.label) - chapterIndex(b.label) || a.label.localeCompare(b.label, "zh-CN"));
+  const chapterColors = new Map(chapterNodes.map((node, index) => [node.chapter, palette[index % palette.length]]));
+  const positions = new Map();
+  const chapterByName = new Map(chapterNodes.map((node) => [node.chapter, node]));
+  const chapterSlots = new Map();
+  const mainChapters = chapterNodes.filter((node) => chapterIndex(node.label) <= 11);
+  const otherChapters = chapterNodes.filter((node) => chapterIndex(node.label) > 11);
+  const radius = 360;
+
+  mainChapters.forEach((chapter, index) => {
+    const angle = -Math.PI / 2 + (2 * Math.PI * index) / Math.max(mainChapters.length, 1);
+    const slot = {
+      x: center.x + Math.cos(angle) * radius,
+      y: center.y + Math.sin(angle) * radius,
+      angle,
+      clusterRadius: 68 + Math.min(26, Math.max(0, chapterIndex(chapter.label) - 1) * 1.4),
+      color: chapterColors.get(chapter.chapter),
+    };
+    chapterSlots.set(chapter.chapter, slot);
+    positions.set(chapter.id, { ...slot, kind: "chapter", chapter: chapter.chapter });
+  });
+
+  otherChapters.forEach((chapter, index) => {
+    const slot = {
+      x: center.x - 120 + index * 120,
+      y: center.y + radius + 94,
+      angle: Math.PI / 2,
+      clusterRadius: 48,
+      color: chapterColors.get(chapter.chapter),
+    };
+    chapterSlots.set(chapter.chapter, slot);
+    positions.set(chapter.id, { ...slot, kind: "chapter", chapter: chapter.chapter });
+  });
+
+  for (const chapter of chapterNodes) {
+    const slot = chapterSlots.get(chapter.chapter);
+    if (!slot) continue;
+    const children = nodes
+      .filter((node) => node.type !== "chapter" && node.chapter === chapter.chapter && String(node.id).startsWith("wiki/"))
+      .sort((a, b) => a.label.localeCompare(b.label, "zh-CN"));
+    children.forEach((node, index) => {
+      const count = Math.max(children.length, 1);
+      const angle = index * 2.399963229728653;
+      const r = 14 + Math.sqrt(index + 1) / Math.sqrt(count) * slot.clusterRadius;
+      positions.set(node.id, {
+        x: slot.x + Math.cos(angle) * r,
+        y: slot.y + Math.sin(angle) * r,
+        kind: "note",
+        chapter: chapter.chapter,
+        color: slot.color,
+      });
+    });
+  }
+
+  const votes = new Map();
+  for (const edge of graph.edges) {
+    for (const id of [edge.source, edge.target]) {
+      const node = byId.get(id);
+      if (node && node.chapter && chapterSlots.has(node.chapter)) {
+        const other = id === edge.source ? edge.target : edge.source;
+        if (!votes.has(other)) votes.set(other, new Map());
+        const bucket = votes.get(other);
+        bucket.set(node.chapter, (bucket.get(node.chapter) || 0) + 1);
+      }
+    }
+  }
+
+  const externalByChapter = new Map();
+  for (const node of nodes) {
+    if (positions.has(node.id)) continue;
+    const vote = votes.get(node.id);
+    if (!vote) continue;
+    const chapter = [...vote.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    if (!externalByChapter.has(chapter)) externalByChapter.set(chapter, []);
+    externalByChapter.get(chapter).push(node);
+  }
+
+  for (const [chapter, externalNodes] of externalByChapter.entries()) {
+    const slot = chapterSlots.get(chapter);
+    if (!slot) continue;
+    externalNodes.slice(0, 24).forEach((node, index) => {
+      const angle = index * 2.399963229728653 + 0.65;
+      const r = slot.clusterRadius + 18 + Math.sqrt(index + 1) * 4.2;
+      positions.set(node.id, {
+        x: slot.x + Math.cos(angle) * r,
+        y: slot.y + Math.sin(angle) * r,
+        kind: "external",
+        chapter,
+        color: slot.color,
+      });
+    });
+  }
+
+  return { byId, chapterNodes, chapterByName, chapterSlots, chapterColors, positions };
+}
+
+function nodeRadius(node, pos) {
+  if (pos.kind === "root") return 8;
+  if (pos.kind === "chapter") return 10.5;
+  if (pos.kind === "external") return 3.2;
+  return 4.4;
+}
+
+function edgeVisible(edge, byId) {
+  if (edge.type === "CONTAINS") return settings.contains;
+  if (semanticTypes.has(edge.type)) return settings.semantic;
+  if (edge.type !== "LINKS_TO") return false;
+  const source = byId.get(edge.source);
+  const target = byId.get(edge.target);
+  const sameChapter = source && target && source.chapter && source.chapter === target.chapter;
+  return sameChapter ? settings.internalLinks : settings.crossLinks;
+}
+
+function edgeClass(edge, byId) {
+  if (edge.type === "CONTAINS") return "edge contains";
+  if (semanticTypes.has(edge.type)) return "edge semantic";
+  const source = byId.get(edge.source);
+  const target = byId.get(edge.target);
+  const sameChapter = source && target && source.chapter === target.chapter;
+  return sameChapter ? "edge" : "edge cross";
+}
+
+function renderLegend(chapterNodes, chapterColors) {
+  legend.replaceChildren();
+  for (const chapter of chapterNodes.filter((node) => chapterIndex(node.label) <= 11)) {
+    const item = document.createElement("span");
+    const swatch = document.createElement("i");
+    swatch.className = "swatch";
+    swatch.style.background = chapterColors.get(chapter.chapter);
+    item.append(swatch, document.createTextNode(chapter.label));
+    legend.appendChild(item);
+  }
+}
+
+function render() {
+  svg.replaceChildren();
+  svg.classList.toggle("show-labels", settings.labels);
+  const { byId, chapterNodes, chapterSlots, chapterColors, positions } = buildLayout();
+  renderLegend(chapterNodes, chapterColors);
+  const edgeLayer = svgEl("g");
+  const haloLayer = svgEl("g");
+  const nodeLayer = svgEl("g");
+  svg.append(edgeLayer, haloLayer, nodeLayer);
+
+  for (const [chapter, slot] of chapterSlots.entries()) {
+    haloLayer.append(svgEl("circle", {
+      class: "halo",
+      cx: slot.x,
+      cy: slot.y,
+      r: slot.clusterRadius + 14,
+      stroke: slot.color,
+    }));
+    const spoke = svgEl("path", {
+      class: "edge spoke",
+      d: `M ${center.x} ${center.y} L ${slot.x} ${slot.y}`,
+      stroke: slot.color,
+    });
+    edgeLayer.append(spoke);
+  }
+
+  for (const edge of graph.edges) {
+    if (!edgeVisible(edge, byId)) continue;
+    const source = positions.get(edge.source);
+    const target = positions.get(edge.target);
+    if (!source || !target) continue;
+    const path = svgEl("path", {
+      class: edgeClass(edge, byId),
+      d: `M ${source.x} ${source.y} L ${target.x} ${target.y}`,
+      stroke: source.chapter && source.chapter === target.chapter ? source.color : undefined,
+    });
+    path.append(svgEl("title"));
+    path.firstChild.textContent = `${byId.get(edge.source)?.label || edge.source} -> ${byId.get(edge.target)?.label || edge.target} (${edge.type})`;
+    edgeLayer.append(path);
+  }
+
+  nodeLayer.append(svgEl("circle", { class: "node root", cx: center.x, cy: center.y, r: 8 }));
+  const rootLabel = svgEl("text", { class: "root-label", x: center.x, y: center.y + 26 });
+  rootLabel.textContent = "数字图像处理";
+  nodeLayer.append(rootLabel);
+
+  for (const [id, pos] of positions.entries()) {
+    const node = byId.get(id);
+    if (!node) continue;
+    const circle = svgEl("circle", {
+      class: `node ${pos.kind}`,
+      cx: pos.x,
+      cy: pos.y,
+      r: nodeRadius(node, pos),
+      fill: pos.color || "#d1d5db",
+    });
+    circle.append(svgEl("title"));
+    circle.firstChild.textContent = `${node.label}\\n${node.id}`;
+    nodeLayer.append(circle);
+  }
+
+  for (const [id, pos] of positions.entries()) {
+    const node = byId.get(id);
+    if (!node) continue;
+    if (pos.kind === "chapter") {
+      const label = svgEl("text", { class: "chapter-label", x: pos.x, y: pos.y + 25 });
+      label.textContent = shortLabel(node.label);
+      nodeLayer.append(label);
+    } else {
+      const label = svgEl("text", { class: "note-label", x: pos.x, y: pos.y - 8 });
+      label.textContent = shortLabel(node.label);
+      nodeLayer.append(label);
+    }
+  }
+}
+
+render();
+</script>
+</body>
+</html>
+"""
+    output_path.write_text(template.replace("__GRAPH_DATA__", payload), encoding="utf-8")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build graph files from wiki Markdown links.")
     parser.add_argument("--wiki", default="wiki")

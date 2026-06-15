@@ -55,7 +55,7 @@ class WikiGraphViewTest(unittest.TestCase):
             self.assertIn("COMPARES_WITH", text)
             self.assertNotIn("-->|LINKS_TO|", text)
 
-    def test_default_html_uses_fixed_chapter_layout(self):
+    def test_default_html_uses_radial_cluster_layout(self):
         with TemporaryDirectory() as workspace:
             output = Path(workspace) / "graph.html"
             graph = {
@@ -72,8 +72,9 @@ class WikiGraphViewTest(unittest.TestCase):
             write_html(graph, output)
             text = output.read_text(encoding="utf-8")
 
-            self.assertIn("固定章节分组布局", text)
-            self.assertIn('["LINKS_TO", false]', text)
+            self.assertIn("径向章节簇布局", text)
+            self.assertIn('["internalLinks", "章内双链"]', text)
+            self.assertIn('["crossLinks", "跨章双链"]', text)
 
     def test_repository_graph_has_no_overlinked_wiki_hub(self):
         graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
