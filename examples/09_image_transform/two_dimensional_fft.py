@@ -1,14 +1,26 @@
-"""对应章节：9.1.2 二维傅里叶变换
+"""Chapter 9.1.2 two-dimensional FFT."""
 
-运行方式：
-    python 09_image_transform/two_dimensional_fft.py [可选图片路径]
-"""
+from __future__ import annotations
 
-from pathlib import Path
-import sys
+import argparse
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from _common import main
+import numpy as np
+
+from _utils import add_common_arguments, normalize_uint8, print_result, read_gray, save_image
+
+
+def two_dimensional_spectrum(image: np.ndarray) -> np.ndarray:
+    spectrum = np.log1p(np.abs(np.fft.fftshift(np.fft.fft2(image.astype(np.float32)))))
+    return normalize_uint8(spectrum)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="2D FFT magnitude spectrum.")
+    add_common_arguments(parser, "ch09_two_dimensional_fft.png")
+    args = parser.parse_args()
+    image, source = read_gray(args.input)
+    output = save_image(args.output, two_dimensional_spectrum(image))
+    print_result(source, "two_dimensional_spectrum", output)
 
 
 if __name__ == "__main__":

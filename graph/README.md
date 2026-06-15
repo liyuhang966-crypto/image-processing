@@ -1,6 +1,6 @@
 # 知识图谱
 
-`wiki/` 的 Obsidian 链接是当前知识图谱主数据源。第 3 章额外语义关系维护在 `graph/semantic_edges.json`。
+`wiki/` 的 Obsidian 链接是当前知识图谱主数据源。第 3 章到第 11 章的额外语义关系维护在 `graph/semantic_edges.json`。
 
 运行：
 
@@ -19,7 +19,7 @@ python tools/build_graph_from_wiki.py
 - `CONTAINS`
 - `LINKS_TO`
 
-以及第 3 章扩展语义关系：
+以及精品章节扩展语义关系：
 
 - `PREREQUISITE`
 - `COMPARES_WITH`
@@ -27,5 +27,6 @@ python tools/build_graph_from_wiki.py
 - `IMPLEMENTED_BY`
 - `USES_FORMULA`
 - `IMPROVES_OR_EXTENDS`
+- `APPLIES_TO`
 
 `data/raw/entities.csv` 和 `data/raw/relations.csv` 仅保留为 starter 示例，不再作为公开图谱的主来源。
