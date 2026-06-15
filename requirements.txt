@@ -1,0 +1,7 @@
+pymupdf
+pillow
+numpy
+matplotlib
+opencv-python
+networkx
+PyWavelets
