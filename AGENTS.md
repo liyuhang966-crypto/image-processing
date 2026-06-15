@@ -14,9 +14,9 @@
 - 不要大段复制原书全文；wiki 只能整理、转述、归纳。
 - 不确定的公式、页码、图片、表格，必须标注“需人工复核”。
 - 公开仓库不上传原书 PDF、原始抽取文本或原书截图；可提交原创教学示意图和合成样例。
-- 修改 wiki 时，同步检查 `index.md`、`wiki/00_导航.md`、`wiki/99_术语表.md`、`graph/knowledge_graph.json`、`graph/mermaid_graph.md`、`coverage_report.md`。
+- 修改精品章节时，同步检查 `index.md`、`wiki/00_导航.md`、`wiki/99_术语表.md`、`graph/knowledge_graph.json`、`graph/mermaid_graph.md`、`coverage_report.md`。
 - 不要下载模型、数据集，不要调用外部 API。
 
 ## 当前重点
 
-第 2 章作为精品样板继续维护；第 3 章到第 11 章已经结构化，后续逐章补图、复核公式、加深代码实验。
+第 2 章“图像增强”和第 3 章“图像几何变换”已经作为精品样板维护；第 4 章到第 11 章后续按这两个章节的结构逐章补图、复核公式、加深代码实验。
