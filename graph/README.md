@@ -12,17 +12,34 @@ python tools/build_graph_from_wiki.py
 
 优先打开：
 
-- `graph/clustered_knowledge_graph.html`：主推荐图。使用预计算坐标，每一章形成一个独立“岛屿”，默认只显示章节标签，普通跨章 `LINKS_TO` 默认隐藏。
-- `graph/chapter_overview.html`：只看 11 个章节节点和少量主干语义关系。
-- `graph/chapter_01_graph.html` 到 `graph/chapter_11_graph.html`：每章一个局部图，适合复习某一章内部结构。
+- `graph/clustered_knowledge_graph.html`：主推荐图。使用固定章节分区布局，每一章是一个独立圆形星团；节点坐标由本章中心、节点层级和目录顺序决定，不使用自由力导向。
+- `graph/chapter_overview.html`：只看 11 个章节节点和少量跨章强语义关系。
+- `graph/chapter_01_graph.html` 到 `graph/chapter_11_graph.html`：每章一个局部图，只显示本章节点和章内关系。
 - `graph/repo_navigation_graph.html`：单独展示 `README`、`index`、`coverage_report`、导航、术语表等仓库维护节点，避免干扰主知识图。
 
 `graph/knowledge_graph.html` 保留为旧版全量浏览图，不再推荐作为主要学习入口。它更接近普通网络图，节点多时容易出现章节混杂和标签重叠。
 
+## 固定岛屿布局
+
+`graph/clustered_knowledge_graph.json` 中每个节点都包含：
+
+- `chapterNumber`
+- `level`
+- `type`
+- `path`
+- `x`
+- `y`
+- `radius`
+- `angle`
+- `fixed: true`
+- `physics: false`
+
+第 1 章到第 11 章各有固定中心点和独立边界。跨章边只作为可开关的视觉线条绘制，不参与坐标计算。
+
 ## 生成文件
 
 - `graph/knowledge_graph.json`：完整机器可读图谱，保留精简后的 `LINKS_TO` 和语义关系。
-- `graph/clustered_knowledge_graph.json`：章节岛屿布局数据，包含每个节点的 `x`、`y`、`fixedPosition`、`chapterNumber`、`level`、`importance`、`type` 等字段。
+- `graph/clustered_knowledge_graph.json`：章节固定分区布局数据。
 - `graph/mermaid_graph.md`：面向阅读的清爽视图，只展示章节包含关系和语义关系。
 - `graph/clustered_knowledge_graph.html`：主推荐 HTML 图谱。
 - `graph/chapter_overview.html`：章节总览图。
@@ -42,15 +59,15 @@ python tools/build_graph_from_wiki.py
 - `USES_FORMULA`
 - `IMPROVES_OR_EXTENDS`
 - `APPLIES_TO`
-- `CHAPTER_CLUSTER`
 
-主图默认弱化或隐藏跨章普通双链，只保留章节主干和强语义关系，避免不同章节被拉成一团。
+主图默认显示章内 `CONTAINS` 和章内语义关系，默认隐藏普通跨章 `LINKS_TO`。需要查看跨章知识迁移时，可以打开“显示跨章边”，并切换关系过滤。
 
 ## 交互建议
 
-- 先用 `clustered_knowledge_graph.html` 看全局章节分布。
-- 复习单章时切换章节过滤，或直接打开对应的 `chapter_XX_graph.html`。
-- 需要看跨章知识迁移时，打开“显示跨章边”，并把关系过滤切到“只看语义关系”或“只看主干关系”。
+- 先用 `clustered_knowledge_graph.html` 看全局章节岛屿分布。
+- 默认只显示章节标签，避免小节文字遮挡。
+- 点击某个章节节点后，会切换到该章并显示该章内部标签。
+- 复习单章时也可以直接打开对应的 `chapter_XX_graph.html`。
 - 需要调试维护文件时，再打开 `repo_navigation_graph.html`。
 
 ## Obsidian 图谱
