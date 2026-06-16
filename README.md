@@ -1,5 +1,30 @@
 # 数字图像处理知识库
 
+## Obsidian 原生知识库入口
+
+本仓库可以直接作为 Obsidian vault 打开：
+
+1. 安装并打开 Obsidian。
+2. 选择“打开本地文件夹作为库”。
+3. 选择 `D:\image-processing`。
+4. 打开 `wiki/00_导航.md` 作为学习入口。
+5. 打开 `数字图像处理知识图谱.canvas` 查看固定章节分区总览。
+6. 如果需要阅读原书，把合法 PDF 副本放到 `raw/books/数字图像处理基础_朱虹.pdf`。
+
+Graph View 只作为辅助关系浏览，不建议依赖它展示固定章节布局。固定分区关系图请使用 Obsidian Canvas：总览 Canvas 展示 11 个章节区域，每章目录中还有独立 Canvas。
+
+本地 Graph View 过滤配置可通过以下命令恢复：
+
+```powershell
+python tools/configure_obsidian_graph.py
+```
+
+Canvas 可通过以下命令重新生成：
+
+```powershell
+python tools/build_obsidian_canvas.py
+```
+
 这是一个由 Codex 长期维护的 Obsidian 风格个人学习知识库，围绕《数字图像处理基础（朱虹）》进行转述、归纳和实验化整理。
 
 ## 当前进度

@@ -1,0 +1,321 @@
+{
+  "nodes": [
+    {
+      "id": "goal-9",
+      "type": "text",
+      "text": "第 9 章 图像变换\n\n学习目标：先把本章核心概念、典型方法和公式关系串起来，再进入具体小节复习。Canvas 只做固定结构导航；详细内容请打开对应 wiki 笔记。",
+      "x": 40,
+      "y": 30,
+      "width": 880,
+      "height": 120,
+      "color": "3"
+    },
+    {
+      "id": "group-basic-9",
+      "type": "group",
+      "label": "基础概念",
+      "x": 40,
+      "y": 165,
+      "width": 940,
+      "height": 160,
+      "color": "3"
+    },
+    {
+      "id": "group-method-9",
+      "type": "group",
+      "label": "方法 / 算法",
+      "x": 40,
+      "y": 330,
+      "width": 940,
+      "height": 330,
+      "color": "3"
+    },
+    {
+      "id": "group-formula-9",
+      "type": "group",
+      "label": "公式与关键关系",
+      "x": 40,
+      "y": 670,
+      "width": 940,
+      "height": 410,
+      "color": "3"
+    },
+    {
+      "id": "group-exercise-9",
+      "type": "group",
+      "label": "习题",
+      "x": 650,
+      "y": 1110,
+      "width": 330,
+      "height": 180,
+      "color": "3"
+    },
+    {
+      "id": "note-9-README",
+      "type": "file",
+      "file": "wiki/09_图像变换/README.md",
+      "x": 320,
+      "y": 180,
+      "width": 260,
+      "height": 72,
+      "color": "3"
+    },
+    {
+      "id": "note-9-9-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "x": 80,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2_小波变换.md",
+      "x": 390,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3_小波变换在图像处理中的应用.md",
+      "x": 700,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-1-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.1_一维傅里叶变换.md",
+      "x": 80,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-1-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.2_二维傅里叶变换.md",
+      "x": 390,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-1-3_-FFT",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.3_快速傅里叶变换（FFT）.md",
+      "x": 700,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-1-4_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.4_图像的频谱分布特性.md",
+      "x": 80,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-2-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.1_连续小波变换.md",
+      "x": 390,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-2-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.2_离散小波变换.md",
+      "x": 700,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-2-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.3_小波的多尺度分解与重构.md",
+      "x": 80,
+      "y": 880,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-3-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.1_应用于图像压缩.md",
+      "x": 390,
+      "y": 880,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-3-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.2_应用于图像融合.md",
+      "x": 700,
+      "y": 880,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-3-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.3_应用于图像增强.md",
+      "x": 80,
+      "y": 970,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-3-4_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.4_应用于图像去噪.md",
+      "x": 390,
+      "y": 970,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-9-9-x_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.x_习题.md",
+      "x": 700,
+      "y": 1180,
+      "width": 260,
+      "height": 72
+    }
+  ],
+  "edges": [
+    {
+      "id": "chapter-edge-9-README-9-1_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-README-9-2_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-README-9-3_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-1_--9-1-1_",
+      "fromNode": "note-9-9-1_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-1_--9-1-2_",
+      "fromNode": "note-9-9-1_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-1_--9-1-3_-FFT",
+      "fromNode": "note-9-9-1_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1-3_-FFT",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-1_--9-1-4_",
+      "fromNode": "note-9-9-1_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1-4_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-2_--9-2-1_",
+      "fromNode": "note-9-9-2_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-2-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-2_--9-2-2_",
+      "fromNode": "note-9-9-2_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-2-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-2_--9-2-3_",
+      "fromNode": "note-9-9-2_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-2-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-3_--9-3-1_",
+      "fromNode": "note-9-9-3_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-3_--9-3-2_",
+      "fromNode": "note-9-9-3_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-3_--9-3-3_",
+      "fromNode": "note-9-9-3_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-9-3_--9-3-4_",
+      "fromNode": "note-9-9-3_",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3-4_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-9-README-9-x_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-x_",
+      "toSide": "top",
+      "color": "3"
+    }
+  ]
+}

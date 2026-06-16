@@ -26,6 +26,14 @@ def note_index(wiki_dir: Path) -> set[str]:
         index.add(path.name)
         if path.name == "README.md":
             index.add(path.parent.name)
+    for path in sorted(wiki_dir.parent.rglob("*.canvas")):
+        if ".git" in path.parts:
+            continue
+        rel = path.relative_to(wiki_dir.parent).as_posix()
+        index.add(rel)
+        index.add(rel.removesuffix(".canvas"))
+        index.add(path.stem)
+        index.add(path.name)
     return index
 
 

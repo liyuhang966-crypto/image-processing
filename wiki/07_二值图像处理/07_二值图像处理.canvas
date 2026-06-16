@@ -1,0 +1,304 @@
+{
+  "nodes": [
+    {
+      "id": "goal-7",
+      "type": "text",
+      "text": "第 7 章 二值图像处理\n\n学习目标：先把本章核心概念、典型方法和公式关系串起来，再进入具体小节复习。Canvas 只做固定结构导航；详细内容请打开对应 wiki 笔记。",
+      "x": 40,
+      "y": 30,
+      "width": 880,
+      "height": 120,
+      "color": "1"
+    },
+    {
+      "id": "group-basic-7",
+      "type": "group",
+      "label": "基础概念",
+      "x": 40,
+      "y": 165,
+      "width": 940,
+      "height": 160,
+      "color": "1"
+    },
+    {
+      "id": "group-method-7",
+      "type": "group",
+      "label": "方法 / 算法",
+      "x": 40,
+      "y": 330,
+      "width": 940,
+      "height": 330,
+      "color": "1"
+    },
+    {
+      "id": "group-formula-7",
+      "type": "group",
+      "label": "公式与关键关系",
+      "x": 40,
+      "y": 670,
+      "width": 940,
+      "height": 410,
+      "color": "1"
+    },
+    {
+      "id": "group-exercise-7",
+      "type": "group",
+      "label": "习题",
+      "x": 650,
+      "y": 1110,
+      "width": 330,
+      "height": 180,
+      "color": "1"
+    },
+    {
+      "id": "note-7-README",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/README.md",
+      "x": 320,
+      "y": 180,
+      "width": 260,
+      "height": 72,
+      "color": "1"
+    },
+    {
+      "id": "note-7-7-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "x": 80,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "x": 390,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-3_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "x": 700,
+      "y": 360,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-4_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "x": 80,
+      "y": 455,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-5_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "x": 390,
+      "y": 455,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-1-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1.1_连接与点特性.md",
+      "x": 80,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-1-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1.2_几何特征.md",
+      "x": 390,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-2-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2.1_腐蚀.md",
+      "x": 700,
+      "y": 700,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-2-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2.2_膨胀.md",
+      "x": 80,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-3-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3.1_开运算.md",
+      "x": 390,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-3-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3.2_闭运算.md",
+      "x": 700,
+      "y": 790,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-4-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4.1_连通域标签法.md",
+      "x": 80,
+      "y": 880,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-4-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4.2_轮廓标签法.md",
+      "x": 390,
+      "y": 880,
+      "width": 260,
+      "height": 72
+    },
+    {
+      "id": "note-7-7-x_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.x_习题.md",
+      "x": 700,
+      "y": 1180,
+      "width": 260,
+      "height": 72
+    }
+  ],
+  "edges": [
+    {
+      "id": "chapter-edge-7-README-7-1_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-README-7-2_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-README-7-3_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-3_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-README-7-4_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-4_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-README-7-5_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-5_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-1_--7-1-1_",
+      "fromNode": "note-7-7-1_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-1-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-1_--7-1-2_",
+      "fromNode": "note-7-7-1_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-1-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-2_--7-2-1_",
+      "fromNode": "note-7-7-2_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-2-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-2_--7-2-2_",
+      "fromNode": "note-7-7-2_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-2-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-3_--7-3-1_",
+      "fromNode": "note-7-7-3_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-3-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-3_--7-3-2_",
+      "fromNode": "note-7-7-3_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-3-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-4_--7-4-1_",
+      "fromNode": "note-7-7-4_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-4-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-7-4_--7-4-2_",
+      "fromNode": "note-7-7-4_",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-4-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "chapter-edge-7-README-7-x_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-x_",
+      "toSide": "top",
+      "color": "1"
+    }
+  ]
+}
