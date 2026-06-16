@@ -1,0 +1,236 @@
+{
+  "nodes": [
+    {
+      "id": "goal-8",
+      "type": "text",
+      "text": "# 第 8 章 彩色图像处理\n\n学习目标：先把本章核心概念、典型方法、公式关系和代码入口串起来，再进入具体小节复习。Canvas 只做固定结构导航；详细内容请打开对应 wiki 笔记。",
+      "x": 40,
+      "y": 30,
+      "width": 1180,
+      "height": 145,
+      "color": "2"
+    },
+    {
+      "id": "group-basic-8",
+      "type": "group",
+      "label": "基础概念",
+      "x": 40,
+      "y": 185,
+      "width": 1220,
+      "height": 210,
+      "color": "2"
+    },
+    {
+      "id": "group-method-8",
+      "type": "group",
+      "label": "方法 / 算法",
+      "x": 40,
+      "y": 410,
+      "width": 500,
+      "height": 840,
+      "color": "2"
+    },
+    {
+      "id": "group-detail-8",
+      "type": "group",
+      "label": "公式 / 小节 / 补充",
+      "x": 555,
+      "y": 410,
+      "width": 705,
+      "height": 840,
+      "color": "2"
+    },
+    {
+      "id": "group-exercise-8",
+      "type": "group",
+      "label": "习题",
+      "x": 40,
+      "y": 1270,
+      "width": 500,
+      "height": 190,
+      "color": "2"
+    },
+    {
+      "id": "note-8-README",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/README.md",
+      "x": 430,
+      "y": 210,
+      "width": 420,
+      "height": 95,
+      "color": "2"
+    },
+    {
+      "id": "note-8-8-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.1_彩色的形成原理与基本概念.md",
+      "x": 80,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "x": 80,
+      "y": 542,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-3_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "x": 80,
+      "y": 654,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-4_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "x": 80,
+      "y": 766,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-2-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.1_计算颜色模型系统.md",
+      "x": 585,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-2-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.2_视觉颜色模型系统.md",
+      "x": 585,
+      "y": 526,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-2-3_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.3_工业颜色模型系统.md",
+      "x": 585,
+      "y": 622,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-3-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3.1_白平衡法.md",
+      "x": 585,
+      "y": 718,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-3-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "x": 585,
+      "y": 814,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-8-8-x_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.x_习题.md",
+      "x": 80,
+      "y": 1320,
+      "width": 430,
+      "height": 86
+    }
+  ],
+  "edges": [
+    {
+      "id": "chapter-edge-8-README-8-1_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-1_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-README-8-2_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-2_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-README-8-3_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-3_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-README-8-4_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-4_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-8-2_--8-2-1_",
+      "fromNode": "note-8-8-2_",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-2-1_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-8-2_--8-2-2_",
+      "fromNode": "note-8-8-2_",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-2-2_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-8-2_--8-2-3_",
+      "fromNode": "note-8-8-2_",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-2-3_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-8-3_--8-3-1_",
+      "fromNode": "note-8-8-3_",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-3-1_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-8-3_--8-3-2_",
+      "fromNode": "note-8-8-3_",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-3-2_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "chapter-edge-8-README-8-x_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-x_",
+      "toSide": "top",
+      "color": "2"
+    }
+  ]
+}

@@ -1,0 +1,1871 @@
+{
+  "nodes": [
+    {
+      "id": "overview-group-1",
+      "type": "group",
+      "label": "第 1 章 引言",
+      "x": 0,
+      "y": 0,
+      "width": 1140,
+      "height": 1240,
+      "color": "1"
+    },
+    {
+      "id": "overview-title-1",
+      "type": "text",
+      "text": "# 第 1 章 引言\n固定课程分区",
+      "x": 45,
+      "y": 35,
+      "width": 1040,
+      "height": 86,
+      "color": "1"
+    },
+    {
+      "id": "note-1-README",
+      "type": "file",
+      "file": "wiki/01_引言/README.md",
+      "x": 350,
+      "y": 145,
+      "width": 380,
+      "height": 90,
+      "color": "1"
+    },
+    {
+      "id": "note-1-1-1_",
+      "type": "file",
+      "file": "wiki/01_引言/1.1_数字图像处理、计算机视觉、计算机图形学.md",
+      "x": 70,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-2_",
+      "type": "file",
+      "file": "wiki/01_引言/1.2_数字图像处理系统的结构.md",
+      "x": 70,
+      "y": 373,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-3_",
+      "type": "file",
+      "file": "wiki/01_引言/1.3_数字图像的基本概念.md",
+      "x": 70,
+      "y": 461,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-4_",
+      "type": "file",
+      "file": "wiki/01_引言/1.4_数字图像处理的主要研究内容.md",
+      "x": 70,
+      "y": 549,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-5_",
+      "type": "file",
+      "file": "wiki/01_引言/1.5_本书的结构安排.md",
+      "x": 70,
+      "y": 637,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-3-1_",
+      "type": "file",
+      "file": "wiki/01_引言/1.3.1_数字图像的数值描述.md",
+      "x": 575,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-3-2_",
+      "type": "file",
+      "file": "wiki/01_引言/1.3.2_数字图像的灰度直方图.md",
+      "x": 575,
+      "y": 367,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-1-1-x_",
+      "type": "file",
+      "file": "wiki/01_引言/1.x_习题.md",
+      "x": 70,
+      "y": 1110,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-2",
+      "type": "group",
+      "label": "第 2 章 图像增强",
+      "x": 1320,
+      "y": 0,
+      "width": 1140,
+      "height": 1240,
+      "color": "2"
+    },
+    {
+      "id": "overview-title-2",
+      "type": "text",
+      "text": "# 第 2 章 图像增强\n固定课程分区",
+      "x": 1365,
+      "y": 35,
+      "width": 1040,
+      "height": 86,
+      "color": "2"
+    },
+    {
+      "id": "note-2-README",
+      "type": "file",
+      "file": "wiki/02_图像增强/README.md",
+      "x": 1670,
+      "y": 145,
+      "width": 380,
+      "height": 90,
+      "color": "2"
+    },
+    {
+      "id": "note-2-2-1_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.1_γ校正.md",
+      "x": 1390,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-2_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.2_对比度线性展宽.md",
+      "x": 1390,
+      "y": 373,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-3_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.3_灰级窗与灰级窗切片.md",
+      "x": 1390,
+      "y": 461,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-4_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.4_动态范围调整.md",
+      "x": 1390,
+      "y": 549,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-5_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.5_直方图均衡化.md",
+      "x": 1390,
+      "y": 637,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-6_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.6_自适应直方图均衡化.md",
+      "x": 1390,
+      "y": 725,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-7_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.7_伪彩色.md",
+      "x": 1390,
+      "y": 813,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-8_Retinex",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.8_Retinex图像增强方法.md",
+      "x": 1390,
+      "y": 901,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-3-1_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.3.1_灰级窗.md",
+      "x": 1895,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-3-2_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.3.2_灰级窗切片.md",
+      "x": 1895,
+      "y": 367,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-4-1_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.4.1_线性动态范围调整.md",
+      "x": 1895,
+      "y": 449,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-4-2_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.4.2_非线性动态范围调整.md",
+      "x": 1895,
+      "y": 531,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-2-2-x_",
+      "type": "file",
+      "file": "wiki/02_图像增强/2.x_习题.md",
+      "x": 1390,
+      "y": 1110,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-3",
+      "type": "group",
+      "label": "第 3 章 图像几何变换",
+      "x": 2640,
+      "y": 0,
+      "width": 1140,
+      "height": 1240,
+      "color": "3"
+    },
+    {
+      "id": "overview-title-3",
+      "type": "text",
+      "text": "# 第 3 章 图像几何变换\n固定课程分区",
+      "x": 2685,
+      "y": 35,
+      "width": 1040,
+      "height": 86,
+      "color": "3"
+    },
+    {
+      "id": "note-3-README",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/README.md",
+      "x": 2990,
+      "y": 145,
+      "width": 380,
+      "height": 90,
+      "color": "3"
+    },
+    {
+      "id": "note-3-3-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1_图像的位置变换.md",
+      "x": 2710,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2_图像的形状变换.md",
+      "x": 2710,
+      "y": 373,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换.md",
+      "x": 2710,
+      "y": 461,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-4_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.4_图像几何畸变的校正.md",
+      "x": 2710,
+      "y": 549,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-1-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.1_图像的平移.md",
+      "x": 3215,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-1-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.2_图像的镜像.md",
+      "x": 3215,
+      "y": 367,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-1-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.3_图像的旋转.md",
+      "x": 3215,
+      "y": 449,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-2-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.1_图像的缩小.md",
+      "x": 3215,
+      "y": 531,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-2-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.2_图像的放大.md",
+      "x": 3215,
+      "y": 613,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-2-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.3_图像的错切.md",
+      "x": 3215,
+      "y": 695,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-3-3-x_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.x_习题.md",
+      "x": 2710,
+      "y": 1110,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-4",
+      "type": "group",
+      "label": "第 4 章 图像去噪",
+      "x": 3960,
+      "y": 0,
+      "width": 1140,
+      "height": 1240,
+      "color": "4"
+    },
+    {
+      "id": "overview-title-4",
+      "type": "text",
+      "text": "# 第 4 章 图像去噪\n固定课程分区",
+      "x": 4005,
+      "y": 35,
+      "width": 1040,
+      "height": 86,
+      "color": "4"
+    },
+    {
+      "id": "note-4-README",
+      "type": "file",
+      "file": "wiki/04_图像去噪/README.md",
+      "x": 4310,
+      "y": 145,
+      "width": 380,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "note-4-4-1_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.1_图像噪声.md",
+      "x": 4030,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-2_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.2_均值滤波.md",
+      "x": 4030,
+      "y": 373,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-3_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.3_中值滤波.md",
+      "x": 4030,
+      "y": 461,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-4_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.4_边界保持类平滑滤波.md",
+      "x": 4030,
+      "y": 549,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-5_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.5_非局部均值滤波.md",
+      "x": 4030,
+      "y": 637,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-2-1_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.2.1_均值滤波的原理.md",
+      "x": 4535,
+      "y": 285,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-2-2_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.2.2_均值滤波方法.md",
+      "x": 4535,
+      "y": 367,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-3-1_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.3.1_中值滤波的原理.md",
+      "x": 4535,
+      "y": 449,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-3-2_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.3.2_中值滤波方法.md",
+      "x": 4535,
+      "y": 531,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-4-1_K",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.4.1_K近邻均值滤波.md",
+      "x": 4535,
+      "y": 613,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-4-2_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.4.2_对称近邻均值滤波.md",
+      "x": 4535,
+      "y": 695,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-4-4-x_",
+      "type": "file",
+      "file": "wiki/04_图像去噪/4.x_习题.md",
+      "x": 4030,
+      "y": 1110,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-5",
+      "type": "group",
+      "label": "第 5 章 图像锐化",
+      "x": 0,
+      "y": 1420,
+      "width": 1140,
+      "height": 1240,
+      "color": "5"
+    },
+    {
+      "id": "overview-title-5",
+      "type": "text",
+      "text": "# 第 5 章 图像锐化\n固定课程分区",
+      "x": 45,
+      "y": 1455,
+      "width": 1040,
+      "height": 86,
+      "color": "5"
+    },
+    {
+      "id": "note-5-README",
+      "type": "file",
+      "file": "wiki/05_图像锐化/README.md",
+      "x": 350,
+      "y": 1565,
+      "width": 380,
+      "height": 90,
+      "color": "5"
+    },
+    {
+      "id": "note-5-5-1_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.1_图像细节的基本特征.md",
+      "x": 70,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-2_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "x": 70,
+      "y": 1793,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-3_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "x": 70,
+      "y": 1881,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-4_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.4_微分算子在边缘检测中的应用.md",
+      "x": 70,
+      "y": 1969,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-5_Canny",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "x": 70,
+      "y": 2057,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-6_LOG",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "x": 70,
+      "y": 2145,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-2-1_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.1_具有方向性的一阶微分算子.md",
+      "x": 575,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-2-2_Roberts",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "x": 575,
+      "y": 1787,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-2-3_Sobel",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "x": 575,
+      "y": 1869,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-2-4_Priwitt",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "x": 575,
+      "y": 1951,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-3-1_Laplacian",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "x": 575,
+      "y": 2033,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-3-2_Wallis",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3.2_Wallis微分算子.md",
+      "x": 575,
+      "y": 2115,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-5-5-x_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.x_习题.md",
+      "x": 70,
+      "y": 2530,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-6",
+      "type": "group",
+      "label": "第 6 章 图像的分割",
+      "x": 1320,
+      "y": 1420,
+      "width": 1140,
+      "height": 1240,
+      "color": "6"
+    },
+    {
+      "id": "overview-title-6",
+      "type": "text",
+      "text": "# 第 6 章 图像的分割\n固定课程分区",
+      "x": 1365,
+      "y": 1455,
+      "width": 1040,
+      "height": 86,
+      "color": "6"
+    },
+    {
+      "id": "note-6-README",
+      "type": "file",
+      "file": "wiki/06_图像的分割/README.md",
+      "x": 1670,
+      "y": 1565,
+      "width": 380,
+      "height": 90,
+      "color": "6"
+    },
+    {
+      "id": "note-6-6-1_",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.1_阈值分割方法.md",
+      "x": 1390,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-6-6-2_",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.2_区域生长分割方法.md",
+      "x": 1390,
+      "y": 1793,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-6-6-1-1_p",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.1.1_p-参数法.md",
+      "x": 1895,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-6-6-1-2_",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.1.2_最大熵方法.md",
+      "x": 1895,
+      "y": 1787,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-6-6-1-3_",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.1.3_最大类间、类内方差比法.md",
+      "x": 1895,
+      "y": 1869,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-6-6-x_",
+      "type": "file",
+      "file": "wiki/06_图像的分割/6.x_习题.md",
+      "x": 1390,
+      "y": 2530,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-7",
+      "type": "group",
+      "label": "第 7 章 二值图像处理",
+      "x": 2640,
+      "y": 1420,
+      "width": 1140,
+      "height": 1240,
+      "color": "1"
+    },
+    {
+      "id": "overview-title-7",
+      "type": "text",
+      "text": "# 第 7 章 二值图像处理\n固定课程分区",
+      "x": 2685,
+      "y": 1455,
+      "width": 1040,
+      "height": 86,
+      "color": "1"
+    },
+    {
+      "id": "note-7-README",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/README.md",
+      "x": 2990,
+      "y": 1565,
+      "width": 380,
+      "height": 90,
+      "color": "1"
+    },
+    {
+      "id": "note-7-7-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1_二值图像中的基本概念.md",
+      "x": 2710,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2_腐蚀与膨胀.md",
+      "x": 2710,
+      "y": 1793,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-3_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3_开运算与闭运算.md",
+      "x": 2710,
+      "y": 1881,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-4_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4_贴标签.md",
+      "x": 2710,
+      "y": 1969,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-5_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.5_细线化方法.md",
+      "x": 2710,
+      "y": 2057,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-1-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1.1_连接与点特性.md",
+      "x": 3215,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-1-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.1.2_几何特征.md",
+      "x": 3215,
+      "y": 1787,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-2-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2.1_腐蚀.md",
+      "x": 3215,
+      "y": 1869,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-2-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.2.2_膨胀.md",
+      "x": 3215,
+      "y": 1951,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-3-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3.1_开运算.md",
+      "x": 3215,
+      "y": 2033,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-3-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.3.2_闭运算.md",
+      "x": 3215,
+      "y": 2115,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-4-1_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4.1_连通域标签法.md",
+      "x": 3215,
+      "y": 2197,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-4-2_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.4.2_轮廓标签法.md",
+      "x": 3215,
+      "y": 2279,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-7-7-x_",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/7.x_习题.md",
+      "x": 2710,
+      "y": 2530,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-8",
+      "type": "group",
+      "label": "第 8 章 彩色图像处理",
+      "x": 3960,
+      "y": 1420,
+      "width": 1140,
+      "height": 1240,
+      "color": "2"
+    },
+    {
+      "id": "overview-title-8",
+      "type": "text",
+      "text": "# 第 8 章 彩色图像处理\n固定课程分区",
+      "x": 4005,
+      "y": 1455,
+      "width": 1040,
+      "height": 86,
+      "color": "2"
+    },
+    {
+      "id": "note-8-README",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/README.md",
+      "x": 4310,
+      "y": 1565,
+      "width": 380,
+      "height": 90,
+      "color": "2"
+    },
+    {
+      "id": "note-8-8-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.1_彩色的形成原理与基本概念.md",
+      "x": 4030,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2_表色系.md",
+      "x": 4030,
+      "y": 1793,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-3_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3_色彩平衡.md",
+      "x": 4030,
+      "y": 1881,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-4_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.4_彩色补偿.md",
+      "x": 4030,
+      "y": 1969,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-2-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.1_计算颜色模型系统.md",
+      "x": 4535,
+      "y": 1705,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-2-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.2_视觉颜色模型系统.md",
+      "x": 4535,
+      "y": 1787,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-2-3_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.2.3_工业颜色模型系统.md",
+      "x": 4535,
+      "y": 1869,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-3-1_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3.1_白平衡法.md",
+      "x": 4535,
+      "y": 1951,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-3-2_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.3.2_灰色世界法.md",
+      "x": 4535,
+      "y": 2033,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-8-8-x_",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/8.x_习题.md",
+      "x": 4030,
+      "y": 2530,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-9",
+      "type": "group",
+      "label": "第 9 章 图像变换",
+      "x": 0,
+      "y": 2840,
+      "width": 1140,
+      "height": 1240,
+      "color": "3"
+    },
+    {
+      "id": "overview-title-9",
+      "type": "text",
+      "text": "# 第 9 章 图像变换\n固定课程分区",
+      "x": 45,
+      "y": 2875,
+      "width": 1040,
+      "height": 86,
+      "color": "3"
+    },
+    {
+      "id": "note-9-README",
+      "type": "file",
+      "file": "wiki/09_图像变换/README.md",
+      "x": 350,
+      "y": 2985,
+      "width": 380,
+      "height": 90,
+      "color": "3"
+    },
+    {
+      "id": "note-9-9-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1_图像的频域变换（傅里叶变换）.md",
+      "x": 70,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2_小波变换.md",
+      "x": 70,
+      "y": 3213,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3_小波变换在图像处理中的应用.md",
+      "x": 70,
+      "y": 3301,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-1-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.1_一维傅里叶变换.md",
+      "x": 575,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-1-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.2_二维傅里叶变换.md",
+      "x": 575,
+      "y": 3207,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-1-3_-FFT",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.3_快速傅里叶变换（FFT）.md",
+      "x": 575,
+      "y": 3289,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-1-4_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.1.4_图像的频谱分布特性.md",
+      "x": 575,
+      "y": 3371,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-2-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.1_连续小波变换.md",
+      "x": 575,
+      "y": 3453,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-2-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.2_离散小波变换.md",
+      "x": 575,
+      "y": 3535,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-2-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.2.3_小波的多尺度分解与重构.md",
+      "x": 575,
+      "y": 3617,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-3-1_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.1_应用于图像压缩.md",
+      "x": 575,
+      "y": 3699,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-3-2_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.2_应用于图像融合.md",
+      "x": 575,
+      "y": 3781,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-3-3_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.3_应用于图像增强.md",
+      "x": 575,
+      "y": 3863,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-3-4_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.3.4_应用于图像去噪.md",
+      "x": 575,
+      "y": 3945,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-9-9-x_",
+      "type": "file",
+      "file": "wiki/09_图像变换/9.x_习题.md",
+      "x": 70,
+      "y": 3950,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-10",
+      "type": "group",
+      "label": "第 10 章 图像压缩编码",
+      "x": 1320,
+      "y": 2840,
+      "width": 1140,
+      "height": 1240,
+      "color": "4"
+    },
+    {
+      "id": "overview-title-10",
+      "type": "text",
+      "text": "# 第 10 章 图像压缩编码\n固定课程分区",
+      "x": 1365,
+      "y": 2875,
+      "width": 1040,
+      "height": 86,
+      "color": "4"
+    },
+    {
+      "id": "note-10-README",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/README.md",
+      "x": 1670,
+      "y": 2985,
+      "width": 380,
+      "height": 90,
+      "color": "4"
+    },
+    {
+      "id": "note-10-10-1_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.1_图像冗余的概念.md",
+      "x": 1390,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-2_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.2_图像无损压缩编码.md",
+      "x": 1390,
+      "y": 3213,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-3_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.3_图像有损压缩编码.md",
+      "x": 1390,
+      "y": 3301,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-1-1_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.1.1_冗余的概念.md",
+      "x": 1895,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-1-2_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.1.2_图像中的冗余.md",
+      "x": 1895,
+      "y": 3207,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-2-1_-RLE",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.2.1_行程编码（RLE）.md",
+      "x": 1895,
+      "y": 3289,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-2-2_-Huffman",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.2.2_哈夫曼（Huffman）编码.md",
+      "x": 1895,
+      "y": 3371,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-3-1_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.3.1_彩色图像的有损编码.md",
+      "x": 1895,
+      "y": 3453,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-3-2_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.3.2_小波变换编码.md",
+      "x": 1895,
+      "y": 3535,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-10-10-x_",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/10.x_习题.md",
+      "x": 1390,
+      "y": 3950,
+      "width": 380,
+      "height": 82
+    },
+    {
+      "id": "overview-group-11",
+      "type": "group",
+      "label": "第 11 章 深度学习与图像处理",
+      "x": 2640,
+      "y": 2840,
+      "width": 1140,
+      "height": 1240,
+      "color": "5"
+    },
+    {
+      "id": "overview-title-11",
+      "type": "text",
+      "text": "# 第 11 章 深度学习与图像处理\n固定课程分区",
+      "x": 2685,
+      "y": 2875,
+      "width": 1040,
+      "height": 86,
+      "color": "5"
+    },
+    {
+      "id": "note-11-README",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/README.md",
+      "x": 2990,
+      "y": 2985,
+      "width": 380,
+      "height": 90,
+      "color": "5"
+    },
+    {
+      "id": "note-11-11-1_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.1_深度卷积网络的基本结构.md",
+      "x": 2710,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-2_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.2_超分辨率图像重建卷积网络.md",
+      "x": 2710,
+      "y": 3213,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-3_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.3_图像分类深度卷积网络.md",
+      "x": 2710,
+      "y": 3301,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-4_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.4_图像目标检测深度卷积网络.md",
+      "x": 2710,
+      "y": 3389,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-1-1_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.1.1_卷积层.md",
+      "x": 3215,
+      "y": 3125,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-1-2_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.1.2_激活层.md",
+      "x": 3215,
+      "y": 3207,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-1-3_BN",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.1.3_BN层（批数据归一化处理层）.md",
+      "x": 3215,
+      "y": 3289,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-1-4_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.1.4_池化层.md",
+      "x": 3215,
+      "y": 3371,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-2-1_SRCNN",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.2.1_SRCNN网络.md",
+      "x": 3215,
+      "y": 3453,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-2-2_ESPCN",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.2.2_ESPCN网络.md",
+      "x": 3215,
+      "y": 3535,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-3-1_LeNet-5",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.3.1_LeNet-5网络.md",
+      "x": 3215,
+      "y": 3617,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-3-2_AlexNet",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.3.2_AlexNet网络.md",
+      "x": 3215,
+      "y": 3699,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-4-1_Faster-RCNN",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.4.1_Faster-RCNN网络.md",
+      "x": 3215,
+      "y": 3781,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-4-2_YOLO",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.4.2_YOLO网络.md",
+      "x": 3215,
+      "y": 3863,
+      "width": 440,
+      "height": 82
+    },
+    {
+      "id": "note-11-11-x_",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/11.x_习题.md",
+      "x": 2710,
+      "y": 3950,
+      "width": 380,
+      "height": 82
+    }
+  ],
+  "edges": [
+    {
+      "id": "overview-main-edge-1-1-1_",
+      "fromNode": "note-1-README",
+      "fromSide": "bottom",
+      "toNode": "note-1-1-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-1-1-2_",
+      "fromNode": "note-1-README",
+      "fromSide": "bottom",
+      "toNode": "note-1-1-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-1-1-3_",
+      "fromNode": "note-1-README",
+      "fromSide": "bottom",
+      "toNode": "note-1-1-3_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-1-1-4_",
+      "fromNode": "note-1-README",
+      "fromSide": "bottom",
+      "toNode": "note-1-1-4_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-1-1-5_",
+      "fromNode": "note-1-README",
+      "fromSide": "bottom",
+      "toNode": "note-1-1-5_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-2-2-1_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-1_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-2_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-2_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-3_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-3_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-4_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-4_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-5_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-5_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-6_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-6_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-7_",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-7_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-2-2-8_Retinex",
+      "fromNode": "note-2-README",
+      "fromSide": "bottom",
+      "toNode": "note-2-2-8_Retinex",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-3-3-1_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-3-3-2_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-3-3-3_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-3-3-4_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-4_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-4-4-1_",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-4-4-1_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-4-4-2_",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-4-4-2_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-4-4-3_",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-4-4-3_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-4-4-4_",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-4-4-4_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-4-4-5_",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-4-4-5_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-5-5-1_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-1_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-5-5-2_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-5-5-3_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-3_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-5-5-4_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-4_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-5-5-5_Canny",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-5_Canny",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-5-5-6_LOG",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-6_LOG",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-6-6-1_",
+      "fromNode": "note-6-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-6-1_",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "overview-main-edge-6-6-2_",
+      "fromNode": "note-6-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-6-2_",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "overview-main-edge-7-7-1_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-1_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-7-7-2_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-2_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-7-7-3_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-3_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-7-7-4_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-4_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-7-7-5_",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-7-7-5_",
+      "toSide": "top",
+      "color": "1"
+    },
+    {
+      "id": "overview-main-edge-8-8-1_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-1_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-8-8-2_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-2_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-8-8-3_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-3_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-8-8-4_",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-8-4_",
+      "toSide": "top",
+      "color": "2"
+    },
+    {
+      "id": "overview-main-edge-9-9-1_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-9-9-2_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-9-9-3_",
+      "fromNode": "note-9-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-9-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "overview-main-edge-10-10-1_",
+      "fromNode": "note-10-README",
+      "fromSide": "bottom",
+      "toNode": "note-10-10-1_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-10-10-2_",
+      "fromNode": "note-10-README",
+      "fromSide": "bottom",
+      "toNode": "note-10-10-2_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-10-10-3_",
+      "fromNode": "note-10-README",
+      "fromSide": "bottom",
+      "toNode": "note-10-10-3_",
+      "toSide": "top",
+      "color": "4"
+    },
+    {
+      "id": "overview-main-edge-11-11-1_",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-11-11-1_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-11-11-2_",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-11-11-2_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-11-11-3_",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-11-11-3_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "overview-main-edge-11-11-4_",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-11-11-4_",
+      "toSide": "top",
+      "color": "5"
+    }
+  ]
+}

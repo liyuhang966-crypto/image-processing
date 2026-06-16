@@ -1,0 +1,253 @@
+{
+  "nodes": [
+    {
+      "id": "goal-3",
+      "type": "text",
+      "text": "# 第 3 章 图像几何变换\n\n学习目标：先把本章核心概念、典型方法、公式关系和代码入口串起来，再进入具体小节复习。Canvas 只做固定结构导航；详细内容请打开对应 wiki 笔记。",
+      "x": 40,
+      "y": 30,
+      "width": 1180,
+      "height": 145,
+      "color": "3"
+    },
+    {
+      "id": "group-basic-3",
+      "type": "group",
+      "label": "基础概念",
+      "x": 40,
+      "y": 185,
+      "width": 1220,
+      "height": 210,
+      "color": "3"
+    },
+    {
+      "id": "group-method-3",
+      "type": "group",
+      "label": "方法 / 算法",
+      "x": 40,
+      "y": 410,
+      "width": 500,
+      "height": 840,
+      "color": "3"
+    },
+    {
+      "id": "group-detail-3",
+      "type": "group",
+      "label": "公式 / 小节 / 补充",
+      "x": 555,
+      "y": 410,
+      "width": 705,
+      "height": 840,
+      "color": "3"
+    },
+    {
+      "id": "group-exercise-3",
+      "type": "group",
+      "label": "习题",
+      "x": 40,
+      "y": 1270,
+      "width": 500,
+      "height": 190,
+      "color": "3"
+    },
+    {
+      "id": "note-3-README",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/README.md",
+      "x": 430,
+      "y": 210,
+      "width": 420,
+      "height": 95,
+      "color": "3"
+    },
+    {
+      "id": "note-3-3-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1_图像的位置变换.md",
+      "x": 80,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2_图像的形状变换.md",
+      "x": 80,
+      "y": 542,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.3_齐次坐标与图像的仿射变换.md",
+      "x": 80,
+      "y": 654,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-4_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.4_图像几何畸变的校正.md",
+      "x": 80,
+      "y": 766,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-1-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.1_图像的平移.md",
+      "x": 585,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-1-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.2_图像的镜像.md",
+      "x": 585,
+      "y": 526,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-1-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.1.3_图像的旋转.md",
+      "x": 585,
+      "y": 622,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-2-1_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.1_图像的缩小.md",
+      "x": 585,
+      "y": 718,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-2-2_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.2_图像的放大.md",
+      "x": 585,
+      "y": 814,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-2-3_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.2.3_图像的错切.md",
+      "x": 585,
+      "y": 910,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-3-3-x_",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/3.x_习题.md",
+      "x": 80,
+      "y": 1320,
+      "width": 430,
+      "height": 86
+    }
+  ],
+  "edges": [
+    {
+      "id": "chapter-edge-3-README-3-1_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-README-3-2_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-README-3-3_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-README-3-4_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-4_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-1_--3-1-1_",
+      "fromNode": "note-3-3-1_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-1-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-1_--3-1-2_",
+      "fromNode": "note-3-3-1_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-1-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-1_--3-1-3_",
+      "fromNode": "note-3-3-1_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-1-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-2_--3-2-1_",
+      "fromNode": "note-3-3-2_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-2-1_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-2_--3-2-2_",
+      "fromNode": "note-3-3-2_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-2-2_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-3-2_--3-2-3_",
+      "fromNode": "note-3-3-2_",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-2-3_",
+      "toSide": "top",
+      "color": "3"
+    },
+    {
+      "id": "chapter-edge-3-README-3-x_",
+      "fromNode": "note-3-README",
+      "fromSide": "bottom",
+      "toNode": "note-3-3-x_",
+      "toSide": "top",
+      "color": "3"
+    }
+  ]
+}

@@ -6,7 +6,8 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tools.build_graph_from_wiki import build_wiki_graph, write_html, write_mermaid
+from tools.build_graph_from_wiki import build_wiki_graph, write_mermaid
+from tools.configure_obsidian_graph import GRAPH_SETTINGS
 
 
 class WikiGraphViewTest(unittest.TestCase):
@@ -32,14 +33,14 @@ class WikiGraphViewTest(unittest.TestCase):
             self.assertIn(("wiki/02_图像增强/2.1_γ校正", "wiki/02_图像增强/2.2_对比度线性展宽", "LINKS_TO"), edges)
             self.assertIn(("wiki/02_图像增强/README", "wiki/02_图像增强/2.1_γ校正", "CONTAINS"), edges)
 
-    def test_mermaid_view_omits_raw_links(self):
+    def test_mermaid_view_omits_raw_and_ordinary_links(self):
         with TemporaryDirectory() as workspace:
             output = Path(workspace) / "mermaid.md"
             graph = {
                 "nodes": [
                     {"id": "chapter", "label": "章节"},
-                    {"id": "note-a", "label": "知识点 A"},
-                    {"id": "note-b", "label": "知识点 B"},
+                    {"id": "note-a", "label": "知识点A"},
+                    {"id": "note-b", "label": "知识点B"},
                 ],
                 "edges": [
                     {"source": "chapter", "target": "note-a", "type": "CONTAINS"},
@@ -54,26 +55,7 @@ class WikiGraphViewTest(unittest.TestCase):
             self.assertIn("CONTAINS", text)
             self.assertIn("COMPARES_WITH", text)
             self.assertNotIn("-->|LINKS_TO|", text)
-
-    def test_default_html_uses_fixed_chapter_layout(self):
-        with TemporaryDirectory() as workspace:
-            output = Path(workspace) / "graph.html"
-            graph = {
-                "nodes": [
-                    {"id": "wiki/01_引言/README", "label": "01_引言", "type": "chapter", "chapter": "01_引言"},
-                    {"id": "wiki/01_引言/1.1_入口", "label": "1.1_入口", "type": "note", "chapter": "01_引言"},
-                ],
-                "edges": [
-                    {"source": "wiki/01_引言/README", "target": "wiki/01_引言/1.1_入口", "type": "CONTAINS"},
-                    {"source": "wiki/01_引言/1.1_入口", "target": "wiki/01_引言/README", "type": "LINKS_TO"},
-                ],
-            }
-
-            write_html(graph, output)
-            text = output.read_text(encoding="utf-8")
-
-            self.assertIn("固定章节分组布局", text)
-            self.assertIn('["LINKS_TO", false]', text)
+            self.assertIn("主入口请使用 Obsidian Canvas", text)
 
     def test_repository_graph_has_no_overlinked_wiki_hub(self):
         graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
@@ -85,6 +67,54 @@ class WikiGraphViewTest(unittest.TestCase):
         worst_id, worst_count = max(incoming_links.items(), key=lambda item: item[1])
 
         self.assertLessEqual(worst_count, 12, f"{labels.get(worst_id, worst_id)} has too many ordinary wiki links")
+
+    def test_canvas_files_are_the_primary_graph_entry(self):
+        root = Path(__file__).resolve().parents[1]
+        overview = root / "数字图像处理知识图谱.canvas"
+        cross = root / "数字图像处理跨章关系.canvas"
+        self.assertTrue(overview.exists())
+        self.assertTrue(cross.exists())
+
+        overview_data = json.loads(overview.read_text(encoding="utf-8"))
+        chapter_groups = [node for node in overview_data["nodes"] if node["type"] == "group"]
+        file_nodes = [node for node in overview_data["nodes"] if node["type"] == "file"]
+        self.assertEqual(len(chapter_groups), 11)
+        self.assertGreater(len(file_nodes), 100)
+        self.assertLess(len(overview_data.get("edges", [])), len(file_nodes))
+
+        for number in range(1, 12):
+            chapter_dir = next(path for path in (root / "wiki").iterdir() if path.is_dir() and path.name.startswith(f"{number:02d}_"))
+            canvas = chapter_dir / f"{chapter_dir.name}.canvas"
+            self.assertTrue(canvas.exists(), canvas)
+            data = json.loads(canvas.read_text(encoding="utf-8"))
+            self.assertTrue(any(node["type"] == "text" for node in data["nodes"]))
+            self.assertTrue(any(node["type"] == "file" for node in data["nodes"]))
+
+    def test_obsidian_graph_filters_canvas_and_maintenance_files(self):
+        search = GRAPH_SETTINGS["search"]
+        for token in [
+            "-file:.canvas",
+            "-file:canvas",
+            "-path:.canvas",
+            "-file:README",
+            "-file:00_导航",
+            "-file:99_术语表",
+            "-path:tools",
+            "-path:graph",
+            "-path:examples",
+            "-path:raw",
+            "-path:templates",
+        ]:
+            self.assertIn(token, search)
+        self.assertFalse(GRAPH_SETTINGS["showAttachments"])
+        self.assertFalse(GRAPH_SETTINGS["showOrphans"])
+        self.assertTrue(GRAPH_SETTINGS["hideUnresolved"])
+
+    def test_html_graph_outputs_are_removed(self):
+        root = Path(__file__).resolve().parents[1]
+        self.assertFalse((root / "tools" / "clustered_graph_layout.py").exists())
+        self.assertEqual([], list((root / "graph").glob("*.html")))
+        self.assertFalse((root / "graph" / "clustered_knowledge_graph.json").exists())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,287 @@
+{
+  "nodes": [
+    {
+      "id": "goal-5",
+      "type": "text",
+      "text": "# 第 5 章 图像锐化\n\n学习目标：先把本章核心概念、典型方法、公式关系和代码入口串起来，再进入具体小节复习。Canvas 只做固定结构导航；详细内容请打开对应 wiki 笔记。",
+      "x": 40,
+      "y": 30,
+      "width": 1180,
+      "height": 145,
+      "color": "5"
+    },
+    {
+      "id": "group-basic-5",
+      "type": "group",
+      "label": "基础概念",
+      "x": 40,
+      "y": 185,
+      "width": 1220,
+      "height": 210,
+      "color": "5"
+    },
+    {
+      "id": "group-method-5",
+      "type": "group",
+      "label": "方法 / 算法",
+      "x": 40,
+      "y": 410,
+      "width": 500,
+      "height": 840,
+      "color": "5"
+    },
+    {
+      "id": "group-detail-5",
+      "type": "group",
+      "label": "公式 / 小节 / 补充",
+      "x": 555,
+      "y": 410,
+      "width": 705,
+      "height": 840,
+      "color": "5"
+    },
+    {
+      "id": "group-exercise-5",
+      "type": "group",
+      "label": "习题",
+      "x": 40,
+      "y": 1270,
+      "width": 500,
+      "height": 190,
+      "color": "5"
+    },
+    {
+      "id": "note-5-README",
+      "type": "file",
+      "file": "wiki/05_图像锐化/README.md",
+      "x": 430,
+      "y": 210,
+      "width": 420,
+      "height": 95,
+      "color": "5"
+    },
+    {
+      "id": "note-5-5-1_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.1_图像细节的基本特征.md",
+      "x": 80,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-2_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2_一阶微分算子.md",
+      "x": 80,
+      "y": 542,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-3_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3_二阶微分算子.md",
+      "x": 80,
+      "y": 654,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-4_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.4_微分算子在边缘检测中的应用.md",
+      "x": 80,
+      "y": 766,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-5_Canny",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.5_Canny算子.md",
+      "x": 80,
+      "y": 878,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-6_LOG",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.6_LOG滤波算法.md",
+      "x": 80,
+      "y": 990,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-2-1_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.1_具有方向性的一阶微分算子.md",
+      "x": 585,
+      "y": 430,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-2-2_Roberts",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.2_Roberts交叉微分算子.md",
+      "x": 585,
+      "y": 526,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-2-3_Sobel",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.3_Sobel微分算子.md",
+      "x": 585,
+      "y": 622,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-2-4_Priwitt",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.2.4_Priwitt微分算子.md",
+      "x": 585,
+      "y": 718,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-3-1_Laplacian",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3.1_Laplacian微分算子.md",
+      "x": 585,
+      "y": 814,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-3-2_Wallis",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.3.2_Wallis微分算子.md",
+      "x": 585,
+      "y": 910,
+      "width": 430,
+      "height": 86
+    },
+    {
+      "id": "note-5-5-x_",
+      "type": "file",
+      "file": "wiki/05_图像锐化/5.x_习题.md",
+      "x": 80,
+      "y": 1320,
+      "width": 430,
+      "height": 86
+    }
+  ],
+  "edges": [
+    {
+      "id": "chapter-edge-5-README-5-1_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-1_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-2_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-3_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-3_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-4_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-4_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-5_Canny",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-5_Canny",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-6_LOG",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-6_LOG",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-2_--5-2-1_",
+      "fromNode": "note-5-5-2_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2-1_",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-2_--5-2-2_Roberts",
+      "fromNode": "note-5-5-2_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2-2_Roberts",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-2_--5-2-3_Sobel",
+      "fromNode": "note-5-5-2_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2-3_Sobel",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-2_--5-2-4_Priwitt",
+      "fromNode": "note-5-5-2_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-2-4_Priwitt",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-3_--5-3-1_Laplacian",
+      "fromNode": "note-5-5-3_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-3-1_Laplacian",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-5-3_--5-3-2_Wallis",
+      "fromNode": "note-5-5-3_",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-3-2_Wallis",
+      "toSide": "top",
+      "color": "5"
+    },
+    {
+      "id": "chapter-edge-5-README-5-x_",
+      "fromNode": "note-5-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-5-x_",
+      "toSide": "top",
+      "color": "5"
+    }
+  ]
+}

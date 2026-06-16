@@ -1,39 +1,34 @@
-# 知识图谱
+# 知识图谱数据说明
 
-`wiki/` 的 Obsidian 双链是知识图谱主数据源，`graph/semantic_edges.json` 补充人工维护的语义关系。
+本项目的主知识图谱入口已经切换为 Obsidian Canvas：
 
-运行：
+- `数字图像处理知识图谱.canvas`
+- `数字图像处理跨章关系.canvas`
+- `wiki/*/*.canvas`
+
+`graph/` 目录只保留机器可读数据和轻量文档，不再生成 HTML 图谱。
+
+## 保留文件
+
+- `graph/knowledge_graph.json`：从 `wiki/` 双链和 `graph/semantic_edges.json` 合成的机器可读图谱。
+- `graph/semantic_edges.json`：人工维护的强语义关系。
+- `graph/mermaid_graph.md`：轻量 Mermaid 文档，用于快速查看章节包含关系和强语义关系。
+
+## 已废弃内容
+
+HTML 图谱已废弃，不再作为入口，也不再由脚本生成。`graph/*.html` 已加入 `.gitignore`，避免后续误提交。
+
+如果需要固定章节分区、课程地图式浏览，请打开 Obsidian Canvas；如果只需要轻量关系数据，请使用 JSON 或 Mermaid。
+
+## 重新生成
 
 ```powershell
 python tools/build_graph_from_wiki.py
 ```
 
-会同步生成：
+该命令只生成：
 
-- `graph/knowledge_graph.json`：完整机器可读图谱，保留精简后的 `LINKS_TO` 和语义关系。
-- `graph/mermaid_graph.md`：面向阅读的清爽视图，只展示章节包含关系和语义关系。
-- `graph/knowledge_graph.html`：按章节浏览节点的轻量 HTML。
+- `graph/knowledge_graph.json`
+- `graph/mermaid_graph.md`
 
-当前图谱关系包括：
-
-- `CONTAINS`
-- `LINKS_TO`
-- `PREREQUISITE`
-- `COMPARES_WITH`
-- `GENERALIZES`
-- `IMPLEMENTED_BY`
-- `USES_FORMULA`
-- `IMPROVES_OR_EXTENDS`
-- `APPLIES_TO`
-
-## Obsidian 图谱
-
-Obsidian 自带 Graph View 会扫描整个 vault，如果不过滤，会把 `README`、`coverage_report`、`AGENTS`、`graph/`、`tools/` 等维护文件也当成节点。首次打开或图谱变乱时，运行：
-
-```powershell
-python tools/configure_obsidian_graph.py
-```
-
-该命令会更新本地 `.obsidian/graph.json`，只显示 `wiki/` 中的学习笔记，并隐藏章节 README、导航、术语表、未解析节点和孤立维护节点。`.obsidian/` 是本地配置目录，按项目规则不提交到公开仓库。
-
-`data/raw/entities.csv` 和 `data/raw/relations.csv` 仅保留为 starter 示例，不再作为公开图谱的主数据源。
+不会生成任何 `.html` 文件。
