@@ -1,5 +1,15 @@
 # 数字图像处理知识库
 
+## 推荐：使用 Obsidian Canvas 作为主知识图谱
+
+1. 在 Obsidian 中选择“打开本地文件夹作为库”。
+2. 选择 `D:\image-processing`。
+3. 打开 `wiki/00_导航.md`。
+4. 点击“总览 Canvas”进入 `数字图像处理知识图谱.canvas`。
+5. 需要查看章节之间的少量强关系时，打开 `数字图像处理跨章关系.canvas`。
+
+Graph View 只是辅助关系浏览，不作为主图。如果 Graph View 显示混乱，请直接使用 Canvas；固定分区、课程地图式入口都在 Canvas 中维护。
+
 ## Obsidian 原生知识库入口
 
 本仓库可以直接作为 Obsidian vault 打开：
@@ -176,7 +186,8 @@ python tools/build_graph_from_wiki.py
 
 - `graph/knowledge_graph.json`：完整机器可读图谱。
 - `graph/mermaid_graph.md`：清爽学习视图，只画章节包含关系和语义关系。
-- `graph/knowledge_graph.html`：按章节浏览节点的轻量 HTML。
+
+HTML 图谱已废弃，不再生成；固定分区主图谱请使用 Obsidian Canvas。
 
 Obsidian 自带 Graph View 是本地 UI 状态，不提交 `.obsidian/`。需要恢复清爽视图时运行：
 

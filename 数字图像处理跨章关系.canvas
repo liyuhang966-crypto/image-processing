@@ -1,0 +1,300 @@
+{
+  "nodes": [
+    {
+      "id": "note-1-README",
+      "type": "file",
+      "file": "wiki/01_引言/README.md",
+      "x": 1250,
+      "y": 150,
+      "width": 430,
+      "height": 96,
+      "color": "1"
+    },
+    {
+      "id": "cross-title-1",
+      "type": "text",
+      "text": "第 1 章 引言",
+      "x": 1250,
+      "y": 54,
+      "width": 430,
+      "height": 70,
+      "color": "1"
+    },
+    {
+      "id": "note-2-README",
+      "type": "file",
+      "file": "wiki/02_图像增强/README.md",
+      "x": 1737,
+      "y": 293,
+      "width": 430,
+      "height": 96,
+      "color": "2"
+    },
+    {
+      "id": "cross-title-2",
+      "type": "text",
+      "text": "第 2 章 图像增强",
+      "x": 1737,
+      "y": 197,
+      "width": 430,
+      "height": 70,
+      "color": "2"
+    },
+    {
+      "id": "note-3-README",
+      "type": "file",
+      "file": "wiki/03_图像几何变换/README.md",
+      "x": 2069,
+      "y": 676,
+      "width": 430,
+      "height": 96,
+      "color": "3"
+    },
+    {
+      "id": "cross-title-3",
+      "type": "text",
+      "text": "第 3 章 图像几何变换",
+      "x": 2069,
+      "y": 580,
+      "width": 430,
+      "height": 70,
+      "color": "3"
+    },
+    {
+      "id": "note-4-README",
+      "type": "file",
+      "file": "wiki/04_图像去噪/README.md",
+      "x": 2141,
+      "y": 1178,
+      "width": 430,
+      "height": 96,
+      "color": "4"
+    },
+    {
+      "id": "cross-title-4",
+      "type": "text",
+      "text": "第 4 章 图像去噪",
+      "x": 2141,
+      "y": 1082,
+      "width": 430,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "note-5-README",
+      "type": "file",
+      "file": "wiki/05_图像锐化/README.md",
+      "x": 1930,
+      "y": 1639,
+      "width": 430,
+      "height": 96,
+      "color": "5"
+    },
+    {
+      "id": "cross-title-5",
+      "type": "text",
+      "text": "第 5 章 图像锐化",
+      "x": 1930,
+      "y": 1543,
+      "width": 430,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "note-6-README",
+      "type": "file",
+      "file": "wiki/06_图像的分割/README.md",
+      "x": 1504,
+      "y": 1914,
+      "width": 430,
+      "height": 96,
+      "color": "6"
+    },
+    {
+      "id": "cross-title-6",
+      "type": "text",
+      "text": "第 6 章 图像的分割",
+      "x": 1504,
+      "y": 1818,
+      "width": 430,
+      "height": 70,
+      "color": "6"
+    },
+    {
+      "id": "note-7-README",
+      "type": "file",
+      "file": "wiki/07_二值图像处理/README.md",
+      "x": 996,
+      "y": 1914,
+      "width": 430,
+      "height": 96,
+      "color": "1"
+    },
+    {
+      "id": "cross-title-7",
+      "type": "text",
+      "text": "第 7 章 二值图像处理",
+      "x": 996,
+      "y": 1818,
+      "width": 430,
+      "height": 70,
+      "color": "1"
+    },
+    {
+      "id": "note-8-README",
+      "type": "file",
+      "file": "wiki/08_彩色图像处理/README.md",
+      "x": 570,
+      "y": 1639,
+      "width": 430,
+      "height": 96,
+      "color": "2"
+    },
+    {
+      "id": "cross-title-8",
+      "type": "text",
+      "text": "第 8 章 彩色图像处理",
+      "x": 570,
+      "y": 1543,
+      "width": 430,
+      "height": 70,
+      "color": "2"
+    },
+    {
+      "id": "note-9-README",
+      "type": "file",
+      "file": "wiki/09_图像变换/README.md",
+      "x": 359,
+      "y": 1178,
+      "width": 430,
+      "height": 96,
+      "color": "3"
+    },
+    {
+      "id": "cross-title-9",
+      "type": "text",
+      "text": "第 9 章 图像变换",
+      "x": 359,
+      "y": 1082,
+      "width": 430,
+      "height": 70,
+      "color": "3"
+    },
+    {
+      "id": "note-10-README",
+      "type": "file",
+      "file": "wiki/10_图像压缩编码/README.md",
+      "x": 431,
+      "y": 676,
+      "width": 430,
+      "height": 96,
+      "color": "4"
+    },
+    {
+      "id": "cross-title-10",
+      "type": "text",
+      "text": "第 10 章 图像压缩编码",
+      "x": 431,
+      "y": 580,
+      "width": 430,
+      "height": 70,
+      "color": "4"
+    },
+    {
+      "id": "note-11-README",
+      "type": "file",
+      "file": "wiki/11_深度学习与图像处理/README.md",
+      "x": 763,
+      "y": 293,
+      "width": 430,
+      "height": 96,
+      "color": "5"
+    },
+    {
+      "id": "cross-title-11",
+      "type": "text",
+      "text": "第 11 章 深度学习与图像处理",
+      "x": 763,
+      "y": 197,
+      "width": 430,
+      "height": 70,
+      "color": "5"
+    },
+    {
+      "id": "cross-note",
+      "type": "text",
+      "text": "# 跨章关系说明\n\n这里只聚合展示强语义关系。具体小节关系请回到总览 Canvas、章节 Canvas 或 Graph View 查看。",
+      "x": 870,
+      "y": 930,
+      "width": 760,
+      "height": 220,
+      "color": "6"
+    }
+  ],
+  "edges": [
+    {
+      "id": "cross-edge-0-4-5-PREREQUISITE",
+      "fromNode": "note-4-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-1-7-6-PREREQUISITE",
+      "fromNode": "note-7-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-2-8-6-APPLIES_TO",
+      "fromNode": "note-8-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-3-10-8-APPLIES_TO",
+      "fromNode": "note-10-README",
+      "fromSide": "bottom",
+      "toNode": "note-8-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-4-10-9-PREREQUISITE",
+      "fromNode": "note-10-README",
+      "fromSide": "bottom",
+      "toNode": "note-9-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-5-11-5-COMPARES_WITH",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-5-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-6-11-6-APPLIES_TO",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-README",
+      "toSide": "top",
+      "color": "6"
+    },
+    {
+      "id": "cross-edge-7-11-6-COMPARES_WITH",
+      "fromNode": "note-11-README",
+      "fromSide": "bottom",
+      "toNode": "note-6-README",
+      "toSide": "top",
+      "color": "6"
+    }
+  ]
+}

@@ -6,8 +6,8 @@ from tempfile import TemporaryDirectory
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tools.build_graph_from_wiki import build_wiki_graph, write_html, write_mermaid
-from tools.clustered_graph_layout import build_clustered_layout, write_clustered_graph_suite
+from tools.build_graph_from_wiki import build_wiki_graph, write_mermaid
+from tools.configure_obsidian_graph import GRAPH_SETTINGS
 
 
 class WikiGraphViewTest(unittest.TestCase):
@@ -33,7 +33,7 @@ class WikiGraphViewTest(unittest.TestCase):
             self.assertIn(("wiki/02_图像增强/2.1_γ校正", "wiki/02_图像增强/2.2_对比度线性展宽", "LINKS_TO"), edges)
             self.assertIn(("wiki/02_图像增强/README", "wiki/02_图像增强/2.1_γ校正", "CONTAINS"), edges)
 
-    def test_mermaid_view_omits_raw_links(self):
+    def test_mermaid_view_omits_raw_and_ordinary_links(self):
         with TemporaryDirectory() as workspace:
             output = Path(workspace) / "mermaid.md"
             graph = {
@@ -55,27 +55,7 @@ class WikiGraphViewTest(unittest.TestCase):
             self.assertIn("CONTAINS", text)
             self.assertIn("COMPARES_WITH", text)
             self.assertNotIn("-->|LINKS_TO|", text)
-
-    def test_default_html_keeps_legacy_radial_controls(self):
-        with TemporaryDirectory() as workspace:
-            output = Path(workspace) / "graph.html"
-            graph = {
-                "nodes": [
-                    {"id": "wiki/01_引言/README", "label": "01_引言", "type": "chapter", "chapter": "01_引言"},
-                    {"id": "wiki/01_引言/1.1_入口", "label": "1.1_入口", "type": "note", "chapter": "01_引言"},
-                ],
-                "edges": [
-                    {"source": "wiki/01_引言/README", "target": "wiki/01_引言/1.1_入口", "type": "CONTAINS"},
-                    {"source": "wiki/01_引言/1.1_入口", "target": "wiki/01_引言/README", "type": "LINKS_TO"},
-                ],
-            }
-
-            write_html(graph, output)
-            text = output.read_text(encoding="utf-8")
-
-            self.assertIn("径向章节簇布局", text)
-            self.assertIn('["internalLinks", "章内双链"]', text)
-            self.assertIn('["crossLinks", "跨章双链"]', text)
+            self.assertIn("主入口请使用 Obsidian Canvas", text)
 
     def test_repository_graph_has_no_overlinked_wiki_hub(self):
         graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
@@ -88,89 +68,53 @@ class WikiGraphViewTest(unittest.TestCase):
 
         self.assertLessEqual(worst_count, 12, f"{labels.get(worst_id, worst_id)} has too many ordinary wiki links")
 
-    def test_clustered_layout_precomputes_fixed_chapter_islands(self):
-        graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
-        layout = build_clustered_layout(graph)
+    def test_canvas_files_are_the_primary_graph_entry(self):
+        root = Path(__file__).resolve().parents[1]
+        overview = root / "数字图像处理知识图谱.canvas"
+        cross = root / "数字图像处理跨章关系.canvas"
+        self.assertTrue(overview.exists())
+        self.assertTrue(cross.exists())
 
-        self.assertEqual(len(layout["chapters"]), 11)
-        for number, chapter in enumerate(layout["chapters"], start=1):
-            self.assertEqual(chapter["number"], number)
-            self.assertTrue(chapter["id"].startswith(f"wiki/{number:02d}_"))
-            self.assertTrue(chapter["id"].endswith("/README"))
+        overview_data = json.loads(overview.read_text(encoding="utf-8"))
+        chapter_groups = [node for node in overview_data["nodes"] if node["type"] == "group"]
+        file_nodes = [node for node in overview_data["nodes"] if node["type"] == "file"]
+        self.assertEqual(len(chapter_groups), 11)
+        self.assertGreater(len(file_nodes), 100)
+        self.assertLess(len(overview_data.get("edges", [])), len(file_nodes))
 
-        for node in layout["nodes"]:
-            for field in ("id", "label", "chapter", "level", "type", "path", "x", "y", "radius", "angle", "fixed"):
-                self.assertIn(field, node)
-            self.assertTrue(node["fixed"])
-            self.assertTrue(node["fixedPosition"])
-            self.assertFalse(node["physics"])
-            self.assertIn("chapterNumber", node)
-            self.assertIn("importance", node)
+        for number in range(1, 12):
+            chapter_dir = next(path for path in (root / "wiki").iterdir() if path.is_dir() and path.name.startswith(f"{number:02d}_"))
+            canvas = chapter_dir / f"{chapter_dir.name}.canvas"
+            self.assertTrue(canvas.exists(), canvas)
+            data = json.loads(canvas.read_text(encoding="utf-8"))
+            self.assertTrue(any(node["type"] == "text" for node in data["nodes"]))
+            self.assertTrue(any(node["type"] == "file" for node in data["nodes"]))
 
-        centers = {chapter["number"]: (chapter["x"], chapter["y"], chapter["radius"]) for chapter in layout["chapters"]}
-        min_distance = min(
-            ((ax - bx) ** 2 + (ay - by) ** 2) ** 0.5
-            for a, (ax, ay, _) in centers.items()
-            for b, (bx, by, _) in centers.items()
-            if a < b
-        )
-        self.assertGreater(min_distance, 900)
+    def test_obsidian_graph_filters_canvas_and_maintenance_files(self):
+        search = GRAPH_SETTINGS["search"]
+        for token in [
+            "-file:.canvas",
+            "-file:canvas",
+            "-path:.canvas",
+            "-file:README",
+            "-file:00_导航",
+            "-file:99_术语表",
+            "-path:tools",
+            "-path:graph",
+            "-path:examples",
+            "-path:raw",
+            "-path:templates",
+        ]:
+            self.assertIn(token, search)
+        self.assertFalse(GRAPH_SETTINGS["showAttachments"])
+        self.assertFalse(GRAPH_SETTINGS["showOrphans"])
+        self.assertTrue(GRAPH_SETTINGS["hideUnresolved"])
 
-        boxes = []
-        for chapter in layout["chapters"]:
-            radius = chapter["radius"]
-            boxes.append((chapter["number"], chapter["x"] - radius, chapter["y"] - radius, chapter["x"] + radius, chapter["y"] + radius))
-        for left_index, left in enumerate(boxes):
-            for right in boxes[left_index + 1 :]:
-                overlap = not (left[3] <= right[1] or right[3] <= left[1] or left[4] <= right[2] or right[4] <= left[2])
-                self.assertFalse(overlap, f"chapter boxes overlap: {left[0]} and {right[0]}")
-
-        for node in layout["nodes"]:
-            chapter_number = node.get("chapterNumber")
-            if not chapter_number or node["level"] == "chapter":
-                continue
-            cx, cy, radius = centers[chapter_number]
-            distance = ((node["x"] - cx) ** 2 + (node["y"] - cy) ** 2) ** 0.5
-            self.assertLessEqual(distance, radius)
-            if node["label"].startswith(("3.", "9.", "10.", "11.")):
-                self.assertEqual(chapter_number, int(node["label"].split(".", 1)[0]))
-
-        nav_paths = {node.get("path") for node in layout["nodes"]}
-        self.assertNotIn("README.md", nav_paths)
-        self.assertNotIn("index.md", nav_paths)
-        self.assertNotIn("coverage_report.md", nav_paths)
-        self.assertNotIn("graph/README.md", nav_paths)
-        self.assertNotIn("wiki/00_导航.md", nav_paths)
-        self.assertNotIn("wiki/99_术语表.md", nav_paths)
-
-        for edge in layout["edges"]:
-            if edge["type"] == "LINKS_TO" and edge.get("isCrossChapter"):
-                self.assertFalse(edge["visibleByDefault"])
-            self.assertFalse(edge["layoutInfluence"])
-
-    def test_clustered_graph_suite_writes_all_recommended_views(self):
-        graph = build_wiki_graph(Path(__file__).resolve().parents[1] / "wiki")
-        with TemporaryDirectory() as workspace:
-            output_dir = Path(workspace)
-            write_clustered_graph_suite(graph, output_dir)
-
-            expected = {
-                "clustered_knowledge_graph.json",
-                "clustered_knowledge_graph.html",
-                "chapter_overview.html",
-                "repo_navigation_graph.html",
-                *{f"chapter_{number:02d}_graph.html" for number in range(1, 12)},
-            }
-            actual = {path.name for path in output_dir.iterdir()}
-            self.assertTrue(expected.issubset(actual))
-
-            main_html = (output_dir / "clustered_knowledge_graph.html").read_text(encoding="utf-8")
-            self.assertIn("固定章节分区布局", main_html)
-            self.assertIn("显示跨章边", main_html)
-            self.assertIn("只看跨章主干关系", main_html)
-            self.assertIn('<option value="chapters">只显示章节标签</option>', main_html)
-            self.assertNotIn("d3.force", main_html)
-            self.assertNotIn("vis-network", main_html)
+    def test_html_graph_outputs_are_removed(self):
+        root = Path(__file__).resolve().parents[1]
+        self.assertFalse((root / "tools" / "clustered_graph_layout.py").exists())
+        self.assertEqual([], list((root / "graph").glob("*.html")))
+        self.assertFalse((root / "graph" / "clustered_knowledge_graph.json").exists())
 
 
 if __name__ == "__main__":

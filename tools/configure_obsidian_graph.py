@@ -1,8 +1,8 @@
 """生成本地 Obsidian Graph View 配置。
 
-.obsidian/ 目录是本地 UI 状态，项目已经通过 .gitignore 忽略。本脚本用于
-可重复地恢复干净的学习图谱过滤条件：只看 wiki/ 学习笔记，排除维护文件，
-并按章节设置颜色分组。
+Graph View 只作为辅助关系浏览，不承担固定章节布局。固定课程地图请使用
+Obsidian Canvas。本脚本会把 .obsidian/graph.json 恢复为干净过滤配置：
+只显示 wiki/ 下的 Markdown 学习笔记，排除 Canvas 和维护文件。
 """
 
 from __future__ import annotations
@@ -28,10 +28,13 @@ CHAPTER_GROUPS = [
     ("path:wiki/11_深度学习与图像处理", 0xFBBF24),
 ]
 
-# Obsidian 的搜索语法会在 Graph View 中过滤节点。这里尽量把维护文件和
-# 非学习内容排除掉，避免 README、脚本、生成图等混进主学习图谱。
+# Obsidian Graph View 使用搜索语法过滤节点。这里显式排除 .canvas，
+# 避免章节 Canvas 和总览 Canvas 被当作图谱节点。
 GRAPH_SEARCH = (
     "path:wiki "
+    "-file:.canvas "
+    "-file:canvas "
+    "-path:.canvas "
     "-file:README "
     "-file:00_导航 "
     "-file:99_术语表 "
@@ -60,14 +63,14 @@ GRAPH_SETTINGS = {
     "colorGroups": [{"query": query, "color": {"a": 1, "rgb": rgb}} for query, rgb in CHAPTER_GROUPS],
     "collapse-display": False,
     "showArrow": True,
-    "textFadeMultiplier": -1.0,
-    "nodeSizeMultiplier": 0.75,
-    "lineSizeMultiplier": 0.25,
+    "textFadeMultiplier": -1.15,
+    "nodeSizeMultiplier": 0.7,
+    "lineSizeMultiplier": 0.18,
     "collapse-forces": False,
-    "centerStrength": 0.15,
-    "repelStrength": 22.0,
-    "linkStrength": 0.12,
-    "linkDistance": 220,
+    "centerStrength": 0.1,
+    "repelStrength": 24.0,
+    "linkStrength": 0.08,
+    "linkDistance": 240,
     "scale": 0.55,
     "close": False,
 }

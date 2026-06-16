@@ -18,3 +18,4 @@ data/processed/*.json
 outputs/
 examples/output/
 examples/**/output/
+graph/*.html
